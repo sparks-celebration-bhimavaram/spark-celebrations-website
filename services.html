@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="46aPNrYZYtecrf4vN7ib_GL7Fpe5Ov_xUeBHK2OcYow" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPARK Celebrations | Best Event Planners in Bhimavaram</title>
+    <link rel="icon" type="image/x-icon" href="favicon-circle.ico">
+    <meta name="description" content="SPARK Celebrations – Premium event management in Bhimavaram. Private theaters, venue decor for birthdays, weddings & more. Call +91 99886 59759.">
+    
+    <!-- CDNs -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        maroon: {
+                            DEFAULT: '#4A0404',
+                            dark: '#2A0202',
+                        },
+                        gold: {
+                            DEFAULT: '#D4AF37',
+                            light: '#F9E27A',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black text-white font-poppins overflow-x-hidden">
+
+    <!-- Global Sparking Background -->
+    <canvas id="global-spark-canvas" class="fixed inset-0 z-[-1] pointer-events-none opacity-40"></canvas>
+
+    <!-- Main Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-xl border-b border-white/5 py-6 px-6 md:px-10 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-2 md:gap-3">
+            <img src="https://lh3.googleusercontent.com/p/AF1QipPIO7irERRQ1oBmt8Rjt68KyYuAAznW3nCo90DC=w200" alt="SPARK Logo" class="h-9 md:h-12 w-auto rounded-full border border-gold/20 shadow-lg">
+            <div class="flex flex-col">
+                <span class="brand-title text-xl md:text-2xl leading-none">SPARK</span>
+                <span class="brand-subtitle text-[0.6rem] md:text-[0.7rem] leading-none mt-1">CELEBRATIONS</span>
+            </div>
+        </a>
+
+        <div class="hidden lg:flex gap-8 items-center">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="services.html" class="nav-link text-gold">SERVICES</a>
+            <a href="gallery.html" class="nav-link">Gallery</a>
+            <a href="reviews.html" class="nav-link">Reviews</a>
+            <a href="contact-us.html" class="nav-link">CONTACT US</a>
+            <a href="tel:+919988659759" class="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-black transition-all ml-4" title="Call Us">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3.2 3.45 3.2 3.99 3.2 13.38 10.82 21 20.21 21c.54 0 .99-.45.99-.99v-3.63c0-.55-.45-1-1-1z"/></svg>
+            </a>
+            <a href="index.html#booking-section" class="spark-btn bg-gold text-black font-black px-6 py-2 rounded-full">Book Now</a>
+        </div>
+
+        <button id="mobile-menu-btn" class="lg:hidden text-gold hover:scale-110 transition-transform focus:outline-none p-2 -mr-2">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-center gap-8 -translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.2,1,0.3,1)]">
+        <button id="close-menu" class="absolute top-8 right-10 text-gold p-2">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        
+        <div class="flex flex-col items-center gap-10">
+            <a href="index.html" class="mobile-nav-link text-3xl font-playfair font-black text-white hover:text-gold transition-colors">HOME</a>
+            <a href="services.html" class="mobile-nav-link text-3xl font-playfair font-black text-gold transition-colors">SERVICES</a>
+            <a href="gallery.html" class="mobile-nav-link text-3xl font-playfair font-black text-white hover:text-gold transition-colors">GALLERY</a>
+            <a href="reviews.html" class="mobile-nav-link text-3xl font-playfair font-black text-white hover:text-gold transition-colors">REVIEWS</a>
+            <a href="contact-us.html" class="mobile-nav-link text-3xl font-playfair font-black text-white hover:text-gold transition-colors">CONTACT US</a>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <header class="pt-40 pb-20 bg-[#050505] text-center relative overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-20">
+            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=1920" class="w-full h-full object-cover">
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <h1 class="text-4xl md:text-8xl font-playfair font-black mb-6 leading-tight">
+                Our <span class="text-gold italic">Services</span>
+            </h1>
+            <p class="text-gray-400 max-w-2xl mx-auto font-medium tracking-wide text-sm md:text-xl">
+                Discover how SPARK Celebrations turns every moment into a cinematic masterpiece with our expert planning and exclusive venues.
+            </p>
+        </div>
+    </header>
+
+    <main>
+        <!-- Event Management Services Section -->
+        <section id="services" class="py-20 md:py-32 bg-[#080000] relative overflow-hidden border-b border-white/5">
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-16 md:mb-24">
+                    <span class="text-gold tracking-[0.5em] text-[10px] md:text-xs font-black uppercase mb-4 block">Bhimavaram's Best</span>
+                    <h2 class="text-3xl md:text-7xl font-playfair font-black text-white leading-tight mb-4 glow-gold">Event Management <span class="text-gold italic">Services</span></h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto font-medium tracking-wide text-xs md:text-base">Bringing your celebrations to life with premium decor, cinematic photography, and world-class management.</p>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3 md:gap-4">
+                    <!-- Service Card -->
+                    <a href="index.html#booking-section" class="service-card group bg-white/5 border border-white/10 p-2 md:p-4 rounded-xl md:rounded-3xl text-center hover:bg-gold/10 hover:border-gold/30 transition-all duration-500 block">
+                        <div class="service-icon w-8 h-8 md:w-12 md:h-12 mx-auto mb-2 md:mb-4 text-gold transition-all">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-full h-full" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><path d="M12 11V3m0 0l-3 3m3-3l3 3M12 7h.01"/></svg>
+                        </div>
+                        <h3 class="text-white font-black tracking-[0.05em] text-sm uppercase">BIRTHDAY</h3>
+                    </a>
+
+                    <a href="index.html#booking-section" class="service-card group bg-white/5 border border-white/10 p-2 md:p-4 rounded-xl md:rounded-3xl text-center hover:bg-gold/10 hover:border-gold/30 transition-all duration-500 block">
+                        <div class="service-icon w-8 h-8 md:w-12 md:h-12 mx-auto mb-2 md:mb-4 text-gold transition-all">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-full h-full" stroke-width="1.5"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="7" r="3"/><path d="M12 10V4"/></svg>
+                        </div>
+                        <h3 class="text-white font-black tracking-[0.05em] text-sm uppercase">Engagement</h3>
+                    </a>
+
+                    <a href="index.html#booking-section" class="service-card group bg-white/5 border border-white/10 p-2 md:p-4 rounded-xl md:rounded-3xl text-center hover:bg-gold/10 hover:border-gold/30 transition-all duration-500 block">
+                        <div class="service-icon w-8 h-8 md:w-12 md:h-12 mx-auto mb-2 md:mb-4 text-gold transition-all">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-full h-full" stroke-width="1.5"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        </div>
+                        <h3 class="text-white font-black tracking-[0.05em] text-sm uppercase">Wedding</h3>
+                    </a>
+
+                    <a href="index.html#booking-section" class="service-card group bg-white/5 border border-white/10 p-2 md:p-4 rounded-xl md:rounded-3xl text-center hover:bg-gold/10 hover:border-gold/30 transition-all duration-500 block">
+                        <div class="service-icon w-8 h-8 md:w-12 md:h-12 mx-auto mb-2 md:mb-4 text-gold transition-all">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-full h-full" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <h3 class="text-white font-black tracking-[0.05em] text-sm uppercase">Surprise</h3>
+                    </a>
+
+                    <a href="index.html#booking-section" class="service-card group bg-white/5 border border-white/10 p-2 md:p-4 rounded-xl md:rounded-3xl text-center hover:bg-gold/10 hover:border-gold/30 transition-all duration-500 block">
+                        <div class="service-icon w-8 h-8 md:w-12 md:h-12 mx-auto mb-2 md:mb-4 text-gold transition-all">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-full h-full" stroke-width="1.5"><path d="M6 12h12M12 6v12M12 12l4 4m-8-8l4 4"/></svg>
+                        </div>
+                        <h3 class="text-white font-black tracking-[0.05em] text-sm uppercase">Proposal</h3>
+                    </a>
+
+                    <a href="index.html#booking-section" class="service-card group bg-white/5 border border-white/10 p-2 md:p-4 rounded-xl md:rounded-3xl text-center hover:bg-gold/10 hover:border-gold/30 transition-all duration-500 block">
+                        <div class="service-icon w-8 h-8 md:w-12 md:h-12 mx-auto mb-2 md:mb-4 text-gold transition-all">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-full h-full" stroke-width="1.5"><path d="M12 21a9 9 0 009-9 9 9 0 00-9-9 9 9 0 00-9 9 9 9 0 009 9z"/><path d="M12 12m-3 0a3 3 0 106 0 3 3 0 10-6 0"/></svg>
+                        </div>
+                        <h3 class="text-white font-black tracking-[0.05em] text-sm uppercase">Baby Shower</h3>
+                    </a>
+
+                    <a href="index.html#booking-section" class="service-card group bg-white/5 border border-white/10 p-2 md:p-4 rounded-xl md:rounded-3xl text-center hover:bg-gold/10 hover:border-gold/30 transition-all duration-500 block">
+                        <div class="service-icon w-8 h-8 md:w-12 md:h-12 mx-auto mb-2 md:mb-4 text-gold transition-all">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-full h-full" stroke-width="1.5"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z"/><path d="M12 7v5l3 3"/></svg>
+                        </div>
+                        <h3 class="text-white font-black tracking-[0.05em] text-sm uppercase">Anniversary</h3>
+                    </a>
+
+                    <a href="index.html#booking-section" class="service-card group bg-white/5 border border-white/10 p-2 md:p-4 rounded-xl md:rounded-3xl text-center hover:bg-gold/10 hover:border-gold/30 transition-all duration-500 block">
+                        <div class="service-icon w-8 h-8 md:w-12 md:h-12 mx-auto mb-2 md:mb-4 text-gold transition-all">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-full h-full" stroke-width="1.5"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1 3-6zM12 12v4"/></svg>
+                        </div>
+                        <h3 class="text-white font-black tracking-[0.05em] text-sm uppercase">Festival Decor</h3>
+                    </a>
+
+                    <a href="index.html#booking-section" class="service-card group bg-white/5 border border-white/10 p-2 md:p-4 rounded-xl md:rounded-3xl text-center hover:bg-gold/10 hover:border-gold/30 transition-all duration-500 block">
+                        <div class="service-icon w-8 h-8 md:w-12 md:h-12 mx-auto mb-2 md:mb-4 text-gold transition-all">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-full h-full" stroke-width="1.5"><path d="M8 14l3 3 5-5m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <h3 class="text-white font-black tracking-[0.05em] text-sm uppercase">Corporate</h3>
+                    </a>
+
+                    <a href="index.html#booking-section" class="service-card group bg-white/5 border border-white/10 p-2 md:p-4 rounded-xl md:rounded-3xl text-center hover:bg-gold/10 hover:border-gold/30 transition-all duration-500 block">
+                        <div class="service-icon w-8 h-8 md:w-12 md:h-12 mx-auto mb-2 md:mb-4 text-gold transition-all">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-full h-full" stroke-width="1.5"><path d="M12 3v18M3 12h18M5.5 5.5l13 13m0-13l-13 13"/></svg>
+                        </div>
+                        <h3 class="text-white font-black tracking-[0.05em] text-sm uppercase">Shastipoorthi</h3>
+                    </a>
+
+                    <a href="index.html#booking-section" class="service-card group bg-white/5 border border-white/10 p-2 md:p-4 rounded-xl md:rounded-3xl text-center hover:bg-gold/10 hover:border-gold/30 transition-all duration-500 block">
+                        <div class="service-icon w-8 h-8 md:w-12 md:h-12 mx-auto mb-2 md:mb-4 text-gold transition-all">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-full h-full" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+                        </div>
+                        <h3 class="text-white font-black tracking-[0.05em] text-sm uppercase">Naming</h3>
+                    </a>
+
+                    <a href="index.html#booking-section" class="service-card group bg-white/5 border border-white/10 p-2 md:p-4 rounded-xl md:rounded-3xl text-center hover:bg-gold/10 hover:border-gold/30 transition-all duration-500 block">
+                        <div class="service-icon w-8 h-8 md:w-12 md:h-12 mx-auto mb-2 md:mb-4 text-gold transition-all">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-full h-full" stroke-width="1.5"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                        </div>
+                        <h3 class="text-white font-black tracking-[0.05em] text-sm uppercase">Housewarming</h3>
+                    </a>
+
+                    <a href="index.html#booking-section" class="service-card group bg-white/5 border border-white/10 p-2 md:p-4 rounded-xl md:rounded-3xl text-center hover:bg-gold/10 hover:border-gold/30 transition-all duration-500 block">
+                        <div class="service-icon w-8 h-8 md:w-12 md:h-12 mx-auto mb-2 md:mb-4 text-gold transition-all">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-full h-full" stroke-width="1.5"><path d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m12 4a2 2 0 100-4m0 4a2 2 0 110-4m-6 4h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                        </div>
+                        <h3 class="text-white font-black tracking-[0.05em] text-sm uppercase">Mature</h3>
+                    </a>
+
+                    <a href="index.html#booking-section" class="service-card group bg-white/5 border border-white/10 p-2 md:p-4 rounded-xl md:rounded-3xl text-center hover:bg-gold/10 hover:border-gold/30 transition-all duration-500 block">
+                        <div class="service-icon w-8 h-8 md:w-12 md:h-12 mx-auto mb-2 md:mb-4 text-gold transition-all">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-full h-full" stroke-width="1.5"><path d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/></svg>
+                        </div>
+                        <h3 class="text-white font-black tracking-[0.05em] text-sm uppercase">Concerts</h3>
+                    </a>
+
+                    <a href="index.html#booking-section" class="service-card group bg-white/5 border border-white/10 p-2 md:p-4 rounded-xl md:rounded-3xl text-center hover:bg-gold/10 hover:border-gold/30 transition-all duration-500 block">
+                        <div class="service-icon w-8 h-8 md:w-12 md:h-12 mx-auto mb-2 md:mb-4 text-gold transition-all">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-full h-full" stroke-width="1.5"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/></svg>
+                        </div>
+                        <h3 class="text-white font-black tracking-[0.05em] text-sm uppercase">Farewells</h3>
+                    </a>
+
+                    <a href="index.html#booking-section" class="service-card group bg-white/5 border border-white/10 p-2 md:p-4 rounded-xl md:rounded-3xl text-center hover:bg-gold/10 hover:border-gold/30 transition-all duration-500 block">
+                        <div class="service-icon w-8 h-8 md:w-12 md:h-12 mx-auto mb-2 md:mb-4 text-gold transition-all">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-full h-full" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>
+                        </div>
+                        <h3 class="text-white font-black tracking-[0.05em] text-sm uppercase">Public</h3>
+                    </a>
+
+                    <a href="index.html#booking-section" class="service-card group bg-white/5 border border-white/10 p-2 md:p-4 rounded-xl md:rounded-3xl text-center hover:bg-gold/10 hover:border-gold/30 transition-all duration-500 block">
+                        <div class="service-icon w-8 h-8 md:w-12 md:h-12 mx-auto mb-2 md:mb-4 text-gold transition-all">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-full h-full" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                        </div>
+                        <h3 class="text-white font-black tracking-[0.05em] text-sm uppercase">Educational</h3>
+                    </a>
+                </div>
+
+                <div class="mt-20 text-center">
+                    <a href="index.html#booking-section" class="spark-btn bg-gold text-black font-black px-12 py-5 rounded-full text-lg uppercase tracking-widest shadow-[0_0_50px_rgba(212,175,55,0.4)]">
+                        BOOK YOUR EVENT
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mini Private Theater Showcase Section -->
+        <section class="py-16 md:py-20 relative bg-black sparkle-bg overflow-hidden isolate">
+            <div class="div absolute inset-0 mandala-pattern opacity-5"></div>
+            <div class="container mx-auto px-6 relative">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+                    <div>
+                        <p class="text-gold uppercase tracking-[0.4em] text-xs font-black mb-4">Exclusive Venue</p>
+                        <h2 class="text-4xl md:text-5xl font-playfair font-black mb-6 leading-tight">
+                            Mini <span class="text-gold italic">Private Theater</span>
+                        </h2>
+                        <p class="text-gray-300 text-base md:text-base leading-relaxed mb-8">
+                            Bhimavaram's premium private party theater for birthdays and anniversaries. Enjoy luxurious seating, a big screen, and an unforgettable celebration vibe with your closest ones.
+                        </p>
+
+                        <div class="md:hidden relative rounded-3xl overflow-hidden shadow-[0_0_60px_rgba(212,175,55,0.15)] border border-gold/20 mb-12">
+                            <img src="assets/images/jubliee-theater/slide-1.webp" alt="SPARK Mini Private Theater" class="w-full h-auto object-cover">
+                        </div>
+
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+                            <li class="flex items-center gap-4 text-gray-400 text-sm font-medium">
+                                <div class="w-2 h-2 bg-gold rounded-full shadow-[0_0_5px_#D4AF37]"></div>
+                                Dolby Atmos Immersive Sound
+                            </li>
+                            <li class="flex items-center gap-4 text-gray-400 text-sm font-medium">
+                                <div class="w-2 h-2 bg-gold rounded-full shadow-[0_0_5px_#D4AF37]"></div>
+                                Ultra HD Big Screen Projection
+                            </li>
+                            <li class="flex items-center gap-4 text-gray-400 text-sm font-medium">
+                                <div class="w-2 h-2 bg-gold rounded-full shadow-[0_0_5px_#D4AF37]"></div>
+                                Customized Decorations
+                            </li>
+                            <li class="flex items-center gap-4 text-gray-400 text-sm font-medium">
+                                <div class="w-2 h-2 bg-gold rounded-full shadow-[0_0_5px_#D4AF37]"></div>
+                                Luxurious Cozy Seating
+                            </li>
+                        </ul>
+
+                        <a href="services/private-theater.html" class="spark-btn inline-block border-2 border-gold text-gold font-black px-12 py-5 rounded-full uppercase tracking-widest text-sm hover:bg-gold hover:text-black transition-all">
+                            Book Theater Now
+                        </a>
+                    </div>
+                    <div class="hidden md:block relative rounded-3xl overflow-hidden shadow-[0_0_60px_rgba(212,175,55,0.15)] border border-gold/20 group">
+                        <img src="assets/images/jubliee-theater/slide-1.webp" alt="SPARK Mini Private Theater" class="w-full h-[400px] object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent pointer-events-none"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Video Modal -->
+    <div id="video-modal" class="fixed inset-0 z-[200] bg-black/95 flex items-center justify-center p-4 md:p-10 hidden opacity-0 transition-opacity duration-300">
+        <button onclick="closeGalleryVideo()" class="absolute top-8 right-8 text-white hover:text-gold transition-colors z-[210]">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <div class="w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl relative">
+            <video id="modal-video" class="w-full h-full" controls playsinline>
+                <source src="" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <!-- Floating Actions -->
+    <div class="fixed bottom-8 right-8 z-[100] flex flex-col gap-4 floating-actions-container">
+        <a href="https://wa.me/919988659759" target="_blank" class="w-10 h-10 rounded-full bg-[#25D366] shadow-lg flex items-center justify-center hover:scale-110 transition-transform">
+            <img src="assets/images/whatsapp_logo.png" alt="WhatsApp" class="w-5 h-5 object-contain">
+        </a>
+        <a href="tel:+919988659759" class="w-10 h-10 rounded-full bg-[#3b82f6] shadow-lg flex items-center justify-center hover:scale-110 transition-transform">
+            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3.2 3.45 3.2 3.99 3.2 13.38 10.82 21 20.21 21c.54 0 .99-.45.99-.99v-3.63c0-.55-.45-1-1-1z"/></svg>
+        </a>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/intro.js"></script>
+    <script>
+        // Use global video logic from script.js if needed, or define here for quick access
+        function playGalleryVideo(element) {
+            const videoSource = element.querySelector('source').src;
+            const modal = document.getElementById('video-modal');
+            const modalVideo = document.getElementById('modal-video');
+            modalVideo.src = videoSource;
+            modal.classList.remove('hidden');
+            setTimeout(() => modal.classList.add('opacity-100'), 10);
+            document.body.style.overflow = 'hidden';
+            modalVideo.play();
+        }
+
+        function closeGalleryVideo() {
+            const modal = document.getElementById('video-modal');
+            const modalVideo = document.getElementById('modal-video');
+            modal.classList.remove('opacity-100');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modalVideo.pause();
+                modalVideo.src = "";
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        // Global Sparking Motion Script
+        const bgCanvas = document.getElementById('global-spark-canvas');
+        if (bgCanvas) {
+            const bgCtx = bgCanvas.getContext('2d');
+            let bgParticles = [];
+
+            function resizeBgCanvas() {
+                bgCanvas.width = window.innerWidth;
+                bgCanvas.height = window.innerHeight;
+            }
+
+            class BgParticle {
+                constructor() {
+                    this.reset();
+                }
+                reset() {
+                    this.x = Math.random() * bgCanvas.width;
+                    this.y = Math.random() * bgCanvas.height;
+                    this.size = Math.random() * 1.5 + 0.5;
+                    this.speedX = (Math.random() - 0.5) * 0.3;
+                    this.speedY = (Math.random() - 0.5) * 0.3;
+                    this.opacity = Math.random() * 0.5 + 0.1;
+                    this.targetOpacity = this.opacity;
+                }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    if (Math.random() > 0.98) this.targetOpacity = Math.random() * 0.6 + 0.1;
+                    this.opacity += (this.targetOpacity - this.opacity) * 0.05;
+                    if (this.x < 0) this.x = bgCanvas.width;
+                    if (this.x > bgCanvas.width) this.x = 0;
+                    if (this.y < 0) this.y = bgCanvas.height;
+                    if (this.y > bgCanvas.height) this.y = 0;
+                }
+                draw() {
+                    bgCtx.fillStyle = `rgba(212, 175, 55, ${this.opacity})`;
+                    bgCtx.shadowBlur = 4;
+                    bgCtx.shadowColor = 'rgba(212, 175, 55, 0.5)';
+                    bgCtx.beginPath();
+                    bgCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    bgCtx.fill();
+                }
+            }
+
+            function initBgSparks() {
+                resizeBgCanvas();
+                const particleCount = Math.min(60, Math.floor(window.innerWidth / 15));
+                bgParticles = [];
+                for (let i = 0; i < particleCount; i++) {
+                    bgParticles.push(new BgParticle());
+                }
+            }
+
+            function animateBgSparks() {
+                bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+                bgParticles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+                requestAnimationFrame(animateBgSparks);
+            }
+
+            window.addEventListener('resize', () => {
+                resizeBgCanvas();
+                initBgSparks();
+            });
+            initBgSparks();
+            animateBgSparks();
+        }
+
+        // Navbar Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('-translate-y-full');
+        });
+
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('-translate-y-full');
+        });
+    </script>
+</body>
+</html>

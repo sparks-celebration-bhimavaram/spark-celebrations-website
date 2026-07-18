@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SPARK Celebrations | Premium Event Storytellers</title>
+
+    <meta name="description" content="Cinematic event management and emotional reel storytelling in Bhimavaram. We don't just plan events... we capture emotions.">
+
+    
+
+    <!-- CDNs -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    
+
+    <script>
+
+        tailwind.config = {
+
+            theme: {
+
+                extend: {
+
+                    colors: {
+
+                        maroon: {
+
+                            DEFAULT: '#4A0404',
+
+                            dark: '#2A0202',
+
+                        },
+
+                        gold: {
+
+                            DEFAULT: '#D4AF37',
+
+                            light: '#F9E27A',
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    </script>
+
+</head>
+
+<body class="bg-black text-white font-poppins overflow-x-hidden">
+
+
+
+    <!-- Cinematic Intro Overlay -->
+
+    <div id="intro-overlay" class="fixed inset-0 z-[1000] flex pointer-events-auto">
+
+        <div class="curtain-left w-1/2 h-full flex flex-col items-end justify-center">
+
+            <div class="absolute inset-0 mandala-pattern opacity-10"></div>
+
+        </div>
+
+        <div class="curtain-right w-1/2 h-full flex flex-col items-start justify-center">
+
+            <div class="absolute inset-0 mandala-pattern opacity-10"></div>
+
+        </div>
+
+        
+
+        <div id="intro-content" class="absolute inset-0 flex flex-col items-center justify-center z-10 text-center">
+
+            <div id="intro-spark" class="w-1 h-1 bg-gold rounded-full absolute shadow-[0_0_20px_#D4AF37]"></div>
+
+            <h1 id="intro-title" class="text-5xl md:text-8xl font-playfair font-black text-gold glow-gold tracking-tighter">
+
+                SPARK <span class="text-white">CELEBRATIONS</span>
+
+                <p class="text-base md:text-2xl font-poppins font-light text-white/80 tracking-[0.3em] mt-4 uppercase">Every Celebration Begins with a Spark</p>
+
+            </h1>
+
+        </div>
+
+        
+
+        <button id="skip-intro" class="absolute top-8 right-8 text-gold border border-gold/50 px-6 py-2 rounded-full hover:bg-gold hover:text-black transition-all z-[1010] text-xs font-bold uppercase tracking-widest">
+
+            Skip Intro
+
+        </button>
+
+    </div>
+
+
+
+    <!-- Main Navigation -->
+
+    <nav class="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-xl border-b border-white/5 py-6 px-6 md:px-10 flex justify-between items-center">
+
+        <div class="logo font-playfair font-black text-2xl tracking-tighter">
+
+            <span class="text-gold">SPARK</span> <span class="text-white">CELEBRATIONS</span>
+
+        </div>
+
+        <div class="hidden lg:flex gap-10 items-center">
+
+            <a href="index.html" class="text-gold">Home</a>
+
+            <a href="reels.html">Reel Shoots</a>
+
+            <a href="gallery.html">Gallery</a>
+
+            <a href="blog.html">Blog</a>
+
+            <a href="join-team.html">Join team</a>
+
+            <a href="#booking" onclick="skipIntroAndBook(event)" class="spark-btn bg-gold text-black font-black px-6 py-2 rounded-full ml-4">Book Now</a>
+
+        </div>
+
+        <button class="lg:hidden text-gold">
+
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+
+        </button>
+
+    </nav>
+
+
+
+    <!-- Content Hidden Until Intro Ends -->
+
+    <main id="main-content" class="opacity-0">
+
+        <!-- Hero Section -->
+
+        <section class="relative h-screen flex items-center justify-center overflow-hidden">
+
+            <div class="absolute inset-0 z-0 scale-110">
+
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=400" alt="Luxury Event" class="w-full h-full object-cover">
+
+                <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/90"></div>
+
+            </div>
+
+            
+
+            <div class="container mx-auto px-6 relative z-10 text-center mt-20">
+
+                <h1 class="text-3xl md:text-8xl font-playfair font-black mb-8 leading-tight">
+
+                    We Don't Just Plan Events, <br>
+
+                    <span class="text-gold italic glow-gold">We Capture Emotions</span>
+
+                </h1>
+
+                <p class="text-base md:text-2xl mb-12 text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
+
+                    Exclusive Reel Shoots, Surprise Planning, and Bhimavaram's Finest Private Celebration Theatre Experiences.
+
+                </p>
+
+                <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+
+                    <a href="#booking" class="spark-btn bg-gold text-black font-black px-8 py-4 md:px-12 md:py-5 rounded-full text-base md:text-sm md:text-lg uppercase tracking-widest shadow-[0_0_30px_rgba(212,175,55,0.4)]">
+
+                        Book Your Event
+
+                    </a>
+
+                    <a href="reels.html" class="spark-btn border border-white/30 backdrop-blur-md px-8 py-4 md:px-12 md:py-5 rounded-full text-base md:text-sm md:text-lg uppercase tracking-widest hover:bg-white/10 transition-all font-bold">
+
+                        Explore Reel Shoots
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            
+
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-40">
+
+                <div class="w-px h-16 bg-gold"></div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Reel Shoots USP -->
+
+        <section class="py-32 bg-black relative">
+
+            <div class="absolute inset-0 mandala-pattern opacity-5"></div>
+
+            <div class="container mx-auto px-6 relative">
+
+                <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+
+                    <div class="max-w-xl">
+
+                        <h2 class="text-2xl md:text-6xl font-playfair font-bold mb-6">Cinematic <span class="text-gold">Storytelling</span></h2>
+
+                        <p class="text-gray-400 text-lg">Every reel we shoot is a masterpiece of emotion, designed for the Gen Z and Millennial soul.</p>
+
+                    </div>
+
+                    <a href="reels.html" class="text-gold font-bold uppercase tracking-widest hover:opacity-70 transition-all flex items-center gap-2">View More Reels <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a>
+
+                </div>
+
+
+
+                <div class="flex overflow-x-auto snap-x snap-mandatory gap-8 pb-4 hide-scrollbar md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible">
+
+                    <div class="group relative h-[350px] md:h-[460px] rounded-[2.5rem] overflow-hidden min-w-[85vw] md:min-w-0 snap-center shrink-0 md:shrink-1">
+
+                        <img src="https://images.unsplash.com/photo-1544256718-3bcf237f3974?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700">
+
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+
+                        <div class="absolute bottom-10 left-8 right-8">
+
+                            <span class="text-3xl block mb-2">👶</span>
+
+                            <h3 class="text-base md:text-lg md:text-xl font-playfair font-bold mb-2">Baby Birth Reels</h3>
+
+                            <p class="text-sm text-gray-400 opacity-0 group-hover:opacity-100 transition-all">Capture their first breath in 4K glory.</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="group relative h-[350px] md:h-[460px] rounded-[2.5rem] overflow-hidden min-w-[85vw] md:min-w-0 snap-center shrink-0 md:shrink-1">
+
+                        <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700">
+
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+
+                        <div class="absolute bottom-10 left-8 right-8">
+
+                            <span class="text-3xl block mb-2">🎁</span>
+
+                            <h3 class="text-base md:text-lg md:text-xl font-playfair font-bold mb-2">Surprise Planning</h3>
+
+                            <p class="text-sm text-gray-400 opacity-0 group-hover:opacity-100 transition-all">Orchestrate the perfect unforgettable surprise.</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="group relative h-[350px] md:h-[460px] rounded-[2.5rem] overflow-hidden min-w-[85vw] md:min-w-0 snap-center shrink-0 md:shrink-1">
+
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700">
+
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+
+                        <div class="absolute bottom-10 left-8 right-8">
+
+                            <span class="text-3xl block mb-2">â¤ï¸</span>
+
+                            <h3 class="text-base md:text-lg md:text-xl font-playfair font-bold mb-2">Proposal Moments</h3>
+
+                            <p class="text-sm text-gray-400 opacity-0 group-hover:opacity-100 transition-all">Romantic proposals captured cinematically.</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="group relative h-[350px] md:h-[460px] rounded-[2.5rem] overflow-hidden min-w-[85vw] md:min-w-0 snap-center shrink-0 md:shrink-1">
+
+                        <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700">
+
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+
+                        <div class="absolute bottom-10 left-8 right-8">
+
+                            <span class="text-3xl block mb-2">🎬</span>
+
+                            <h3 class="text-base md:text-lg md:text-xl font-playfair font-bold mb-2">Instagram Reels</h3>
+
+                            <p class="text-sm text-gray-400 opacity-0 group-hover:opacity-100 transition-all">Trending reels edited to go viral.</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Services Section -->
+
+        <section class="pt-24 pb-12 relative" style="background:#0a0000">
+
+            <div class="absolute inset-0 mandala-pattern opacity-5"></div>
+
+            <div class="container mx-auto px-6 relative">
+
+                <!-- Mini Private Theater Showcase -->
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center mb-12">
+
+                    <!-- Text -->
+
+                    <div>
+
+                        <p class="text-gold uppercase tracking-[0.4em] text-xs font-black mb-4">Exclusive Venue</p>
+
+                        <h2 class="text-2xl md:text-6xl font-playfair font-black mb-8 leading-tight">
+
+                            Mini <span class="text-gold italic">Private Theater</span>
+
+                        </h2>
+
+                        <p class="text-gray-300 text-base md:text-lg leading-relaxed mb-5">
+
+                            â–¶ Celebrate your special moments in style at SPARK Celebrations, a private party theatre designed for birthdays, anniversaries, and all your memorable events.
+
+                        </p>
+
+                        <p class="text-gray-400 text-base leading-relaxed mb-10">
+
+                            â–¶ Indulge in a fun party vibe with our luxurious seating and a big screen, perfect for creating an unforgettable experience for you and your guests.
+
+                        </p>
+
+                        <ul class="space-y-4 mb-12">
+
+                            <li class="flex items-center gap-4 text-gray-200 font-medium">
+
+                                <svg class="w-5 h-5 flex-shrink-0 text-green-400 fill-current" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+
+                                Dolby Atmos Immersive Sound
+
+                            </li>
+
+                            <li class="flex items-center gap-4 text-gray-200 font-medium">
+
+                                <svg class="w-5 h-5 flex-shrink-0 text-green-400 fill-current" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+
+                                Ultra HD Big Screen Projection
+
+                            </li>
+
+                            <li class="flex items-center gap-4 text-gray-200 font-medium">
+
+                                <svg class="w-5 h-5 flex-shrink-0 text-green-400 fill-current" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+
+                                Customized Themed Decorations
+
+                            </li>
+
+                            <li class="flex items-center gap-4 text-gray-200 font-medium">
+
+                                <svg class="w-5 h-5 flex-shrink-0 text-green-400 fill-current" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+
+                                Luxurious &amp; Cozy Seating
+
+                            </li>
+
+                        </ul>
+
+                        <a href="#booking" onclick="skipIntroAndBook(event)" class="spark-btn inline-block border-2 border-gold text-gold font-black px-10 py-4 rounded-full uppercase tracking-widest text-sm hover:bg-gold hover:text-black transition-all">
+
+                            Book Theater Now
+
+                        </a>
+
+                    </div>
+
+
+
+                    <!-- Image -->
+
+                    <div class="relative rounded-3xl overflow-hidden shadow-[0_0_60px_rgba(212,175,55,0.15)] border border-gold/20">
+
+                        <img src="https://lh3.googleusercontent.com/gps-cs-s/AHVAweq6HvPoOZo-EwOR17DKxfYUMjHyVXcPcphBpmCn6r0U3hB83ITDprvIBnK4h8jvEiInNY_WEeeXHeIWD6mNIop40lnSF4Tojd9hcej7SN1B4QsGxe264jnASeHLtXo-QdRgRkW_81CmUu71=w1024" alt="SPARK Mini Private Theater" class="w-full h-[300px] md:h-[500px] object-cover">
+
+                        <div class="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent pointer-events-none"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Real Stories: directly below Mini Private Theater -->
+
+        <section class="pt-0 pb-20 bg-black">
+
+            <div class="container mx-auto px-6">
+
+                <div class="text-center mb-16 pt-16">
+
+                    <h2 class="text-2xl md:text-6xl font-playfair font-bold mb-6">Real <span class="text-gold italic">Stories</span></h2>
+
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <div class="p-10 rounded-3xl border border-white/10 bg-white/[0.03] hover:border-gold/40 hover:bg-white/[0.06] transition-all group">
+
+                        <div class="text-5xl mb-6">🎂</div>
+
+                        <h3 class="text-2xl font-playfair font-bold mb-4 group-hover:text-gold transition-colors">Birthdays</h3>
+
+                        <p class="text-gray-500 text-sm leading-relaxed">Balloon arches, LED setups, photo booths and custom themes — your dream birthday, made real.</p>
+
+                    </div>
+
+                    <div class="p-10 rounded-3xl border border-white/10 bg-white/[0.03] hover:border-gold/40 hover:bg-white/[0.06] transition-all group">
+
+                        <div class="text-5xl mb-6">💍</div>
+
+                        <h3 class="text-2xl font-playfair font-bold mb-4 group-hover:text-gold transition-colors">Weddings</h3>
+
+                        <p class="text-gray-500 text-sm leading-relaxed">Full-service wedding planning with cinematic coverage, decor, catering coordination and more.</p>
+
+                    </div>
+
+                    <div class="p-10 rounded-3xl border border-gold/30 bg-gold/5 hover:border-gold/60 transition-all group">
+
+                        <div class="text-5xl mb-6">🎭</div>
+
+                        <h3 class="text-2xl font-playfair font-bold mb-4 text-gold">Private Theater</h3>
+
+                        <p class="text-gray-400 text-sm leading-relaxed">Big screen, Dolby sound, custom decor — celebrate any occasion in Bhimavaram's finest private theater.</p>
+
+                    </div>
+
+                    <div class="p-10 rounded-3xl border border-white/10 bg-white/[0.03] hover:border-gold/40 hover:bg-white/[0.06] transition-all group">
+
+                        <div class="text-5xl mb-6">✨</div>
+
+                        <h3 class="text-2xl font-playfair font-bold mb-4 group-hover:text-gold transition-colors">Special Events</h3>
+
+                        <p class="text-gray-500 text-sm leading-relaxed">Anniversaries, graduations, farewell parties — every milestone crafted with luxury care.</p>
+
+                    </div>
+
+                    <div class="p-10 rounded-3xl border border-white/10 bg-white/[0.03] hover:border-gold/40 hover:bg-white/[0.06] transition-all group">
+
+                        <div class="text-5xl mb-6">🎬</div>
+
+                        <h3 class="text-2xl font-playfair font-bold mb-4 group-hover:text-gold transition-colors">Reel Shoots</h3>
+
+                        <p class="text-gray-500 text-sm leading-relaxed">Our USP — cinematic 4K reels, emotional storytelling, and viral-ready Instagram content.</p>
+
+                    </div>
+
+                    <div class="p-10 rounded-3xl border border-white/10 bg-white/[0.03] hover:border-gold/40 hover:bg-white/[0.06] transition-all group">
+
+                        <div class="text-5xl mb-6">🎁</div>
+
+                        <h3 class="text-2xl font-playfair font-bold mb-4 group-hover:text-gold transition-colors">Surprise Planning</h3>
+
+                        <p class="text-gray-500 text-sm leading-relaxed">Secretive, seamless, and spectacular. We plan the perfect surprise — from concept to execution.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Reviews / Trust Signal -->
+
+        <section class="py-20 border-y border-white/5 bg-white/[0.02]">
+
+            <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-center gap-10 text-center">
+
+                <div class="flex gap-2 text-gold">
+
+                    <svg class="w-7 h-7 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                    <svg class="w-7 h-7 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                    <svg class="w-7 h-7 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                    <svg class="w-7 h-7 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                    <svg class="w-7 h-7 fill-current opacity-50" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                </div>
+
+                <div>
+
+                    <h3 class="text-3xl font-playfair font-bold">4.6 / 5 Stars</h3>
+
+                    <p class="text-gray-400 text-sm mt-2 uppercase tracking-widest font-bold">117+ Verified Google Reviews · Bhimavaram's Most Trusted Event Brand</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+                    <div class="swiper testimonialSwiper">
+
+                    <div class="swiper-wrapper pb-12">
+
+                        <div class="swiper-slide">
+
+                            <div class="bg-white/5 rounded-3xl p-10 border border-white/10 max-w-2xl mx-auto text-center">
+
+                                <div class="flex justify-center gap-1 text-gold mb-6">
+
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                                </div>
+
+                                <p class="text-gray-300 text-base md:text-lg italic leading-relaxed mb-8">"We had our daughter's 1st birthday here and the team was just incredible. The reel they created made my whole family cry. Highly recommend SPARK Celebrations!"</p>
+
+                                <div class="font-bold text-gold">Priya Raju</div>
+
+                                <div class="text-gray-600 text-xs mt-1 uppercase tracking-widest">Birthday Celebration, Bhimavaram</div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="swiper-slide">
+
+                            <div class="bg-white/5 rounded-3xl p-10 border border-white/10 max-w-2xl mx-auto text-center">
+
+                                <div class="flex justify-center gap-1 text-gold mb-6">
+
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                                </div>
+
+                                <p class="text-gray-300 text-base md:text-lg italic leading-relaxed mb-8">"Booked the private theater for our anniversary and it was beyond all expectations. The decor, food, and ambiance were absolutely perfect. SPARK is the real deal!"</p>
+
+                                <div class="font-bold text-gold">Kiran Varma</div>
+
+                                <div class="text-gray-600 text-xs mt-1 uppercase tracking-widest">Private Theater Anniversary, Bhimavaram</div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="swiper-slide">
+
+                            <div class="bg-white/5 rounded-3xl p-10 border border-white/10 max-w-2xl mx-auto text-center">
+
+                                <div class="flex justify-center gap-1 text-gold mb-6">
+
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                                    <svg class="w-5 h-5 fill-current opacity-50" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                                </div>
+
+                                <p class="text-gray-300 text-base md:text-lg italic leading-relaxed mb-8">"The surprise reel they shot for my best friend's engagement was viral on Instagram! Everyone was asking who made it. Best creative team in Bhimavaram, no doubt."</p>
+
+                                <div class="font-bold text-gold">Anjali Reddy</div>
+
+                                <div class="text-gray-600 text-xs mt-1 uppercase tracking-widest">Engagement Reel Shoot</div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="swiper-pagination"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Contact / Location -->
+
+        <section id="contact" class="py-32 relative" style="background:#080000">
+
+            <div class="container mx-auto px-6 relative">
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+                    <div>
+
+                        <h2 class="text-2xl md:text-6xl font-playfair font-bold mb-8">Find <span class="text-gold italic">Us</span></h2>
+
+                        <div class="space-y-6 text-gray-300">
+
+                            <div class="flex gap-4 items-start">
+
+                                <span class="text-gold text-base md:text-lg md:text-xl mt-1">📍</span>
+
+                                <div>
+
+                                    <div class="font-bold text-white mb-1">Address</div>
+
+                                    <p>Radhamurali Nilayam, Bypass Road,<br>Narasayyaagraharam, Bhimavaram,<br>Andhra Pradesh – 534 202</p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="flex gap-4 items-start">
+
+                                <span class="text-gold text-base md:text-lg md:text-xl mt-1">📞</span>
+
+                                <div>
+
+                                    <div class="font-bold text-white mb-1">Phone</div>
+
+                                    <a href="tel:+919988659759" class="hover:text-gold transition-colors">+91 99886 59759</a>
+
+                                </div>
+
+                            </div>
+
+                            <div class="flex gap-4 items-start">
+
+                                <span class="text-gold text-base md:text-lg md:text-xl mt-1">🕐</span>
+
+                                <div>
+
+                                    <div class="font-bold text-white mb-1">Business Hours</div>
+
+                                    <p>Mon – Sun: 9:00 AM – 9:00 PM</p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="flex gap-4 items-start">
+
+                                <span class="text-gold text-base md:text-lg md:text-xl mt-1">📸</span>
+
+                                <div>
+
+                                    <div class="font-bold text-white mb-1">Instagram</div>
+
+                                    <a href="https://www.instagram.com/spark.celebrations.bhimavaram/" target="_blank" class="hover:text-gold transition-colors">@spark.celebrations.bhimavaram</a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="rounded-3xl overflow-hidden h-[400px] border border-white/10">
+
+                        <iframe
+
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3823.8647285977!2d81.5291158!3d16.5519476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a37cdd8b8089707%3A0xc0b8a09b2e3928f!2sSPARK%20Celebrations!5e0!3m2!1sen!2sin!4v1680000000000"
+
+                            width="100%" height="100%" style="border:0;filter:invert(90%) hue-rotate(180deg);" allowfullscreen loading="lazy">
+
+                        </iframe>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Google Reviews Badge Placeholder -->
+
+        <section class="py-20 border-y border-white/5 bg-white/[0.02]">
+
+            <div class="container mx-auto px-6 flex flex-col items-center text-center">
+
+                <div class="flex text-gold mb-4 gap-1">
+
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                    <!-- repeat 4 more stars -->
+
+                </div>
+
+                <h3 class="text-2xl font-bold mb-2">4.6 Stars (117+ Google Reviews)</h3>
+
+                <p class="text-gray-500 uppercase tracking-widest text-sm font-bold">Trusted by Narasayyaagraharam's Finest Families</p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Booking Form -->
+
+        <section id="booking" class="py-32 bg-black-dark relative">
+
+            <div class="absolute inset-0 mandala-pattern opacity-10"></div>
+
+            <div class="container mx-auto px-6 relative">
+
+                <div class="max-w-4xl mx-auto bg-black/60 backdrop-blur-3xl p-12 md:p-20 rounded-[3rem] border border-white/10">
+
+                    <div class="text-center mb-16">
+
+                        <h2 class="text-2xl md:text-6xl font-playfair font-bold mb-6 italic">Secure Your <span class="text-gold">Magic Moment</span></h2>
+
+                        <p class="inline-block bg-gold text-black font-black px-6 py-2 rounded-full uppercase tracking-widest text-sm shadow-[0_0_20px_rgba(212,175,55,0.5)]">Reserve Your Date &amp; Slot Now</p>
+
+                    </div>
+
+                    
+
+                    <form onsubmit="event.preventDefault(); window.whatsappRedirect({
+
+                        name: document.getElementById('name').value,
+
+                        userPhone: document.getElementById('phone').value,
+
+                        eventType: document.getElementById('event-type').value,
+
+                        date: document.getElementById('event-date').value,
+
+                        details: document.getElementById('details').value
+
+                    }, '918143655818')" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                        <input type="text" id="name" placeholder="Your Name" required class="bg-white/5 border border-white/10 px-8 py-5 rounded-2xl outline-none focus:border-gold transition-all">
+
+                        <input type="tel" id="phone" placeholder="Phone Number" required class="bg-white/5 border border-white/10 px-8 py-5 rounded-2xl outline-none focus:border-gold transition-all">
+
+                        <select id="event-type" class="bg-white/5 border border-white/10 px-8 py-5 rounded-2xl outline-none focus:border-gold transition-all text-gray-500">
+
+                            <option value="Reel Shoot">Reel Shoot</option>
+
+                            <option value="Birthday">Birthday Party</option>
+
+                            <option value="Private Theater">Private Theater</option>
+
+                            <option value="Wedding">Wedding Event</option>
+
+                        </select>
+
+                        <input type="date" id="event-date" class="bg-white/5 border border-white/10 px-8 py-5 rounded-2xl outline-none focus:border-gold transition-all text-gray-500">
+
+                        <textarea id="details" placeholder="Tell us about your dream vision..." class="md:col-span-2 bg-white/5 border border-white/10 px-8 py-5 rounded-2xl h-40 outline-none focus:border-gold transition-all"></textarea>
+
+                        
+
+                        <button type="submit" class="md:col-span-2 spark-btn bg-gold text-black font-black py-6 rounded-2xl text-base md:text-lg md:text-xl uppercase tracking-widest shadow-[0_0_40px_rgba(212,175,55,0.3)]">
+
+                            Submit Request via WhatsApp
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Footer -->
+
+        <footer class="py-20 bg-black border-t border-white/5">
+
+            <div class="container mx-auto px-6 text-center">
+
+                <div class="logo font-playfair font-black text-4xl tracking-tighter mb-12">
+
+                    <span class="text-gold">SPARK</span> <span class="text-white">CELEBRATIONS</span>
+
+                </div>
+
+                <div class="flex justify-center gap-10 mb-16">
+
+                    <a href="#" class="text-gray-400 hover:text-gold transition-all uppercase tracking-widest font-bold text-sm">Instagram</a>
+
+                    <a href="#" class="text-gray-400 hover:text-gold transition-all uppercase tracking-widest font-bold text-sm">Facebook</a>
+
+                    <a href="#" class="text-gray-400 hover:text-gold transition-all uppercase tracking-widest font-bold text-sm">YouTube</a>
+
+                </div>
+
+                <p class="text-gray-600 text-sm tracking-widest">&copy; 2026 SPARK Celebrations. Narasayyaagraharam, Bhimavaram.</p>
+
+            </div>
+
+        </footer>
+
+    </main>
+
+
+
+    <!-- WhatsApp Sticky -->
+
+    <a href="https://wa.me/919988659759" target="_blank" class="fixed bottom-10 right-10 z-[90] bg-[#25D366] p-5 rounded-full shadow-2xl hover:scale-110 transition-transform">
+
+        <svg class="w-8 h-8 text-white fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-4.821 7.454c-1.679 0-3.32-.45-4.755-1.302l-.341-.203-3.532.926.942-3.446-.221-.354C3.896 16.14 3.328 14.414 3.328 12.59c0-4.782 3.89-8.67 8.673-8.67 2.316 0 4.493.901 6.13 2.536 1.636 1.635 2.535 3.812 2.535 6.132 0 4.783-3.891 8.673-8.673 8.673m8.192-16.793C18.73 3.619 15.93 2.393 12.59 2.393c-6.853 0-12.428 5.575-12.43 12.43 0 2.191.572 4.33 1.66 6.222l-1.765 6.447 6.592-1.729c1.826 1.002 3.89 1.53 5.94 1.532h.005c6.852 0 12.428-5.576 12.432-12.429 0-3.32-1.29-6.438-3.633-8.774"/></svg>
+
+    </a>
+
+
+
+    <!-- Scripts -->
+
+    <script src="assets/js/script.js"></script>
+
+    <script src="assets/js/intro.js"></script>
+
+    <script>
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Testimonial Swiper
+
+        new Swiper('.testimonialSwiper', {
+
+            loop: true,
+
+            autoplay: { delay: 5000, disableOnInteraction: false },
+
+            pagination: { el: '.swiper-pagination', clickable: true },
+
+            slidesPerView: 1,
+
+        });
+
+        // Scroll Fade Animations
+
+        gsap.utils.toArray('section').forEach(el => {
+
+            gsap.from(el.querySelectorAll('h2, p, .grid > div, article'), {
+
+                opacity: 0, y: 50, stagger: 0.1, duration: 0.7,
+
+                scrollTrigger: { trigger: el, start: 'top 85%' }
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
+
+
+

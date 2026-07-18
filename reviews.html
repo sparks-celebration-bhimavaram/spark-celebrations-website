@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="46aPNrYZYtecrf4vN7ib_GL7Fpe5Ov_xUeBHK2OcYow" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPARK Celebrations | Best Event Planners in Bhimavaram</title>
+    <link rel="icon" type="image/x-icon" href="favicon-circle.ico">
+    <meta name="description" content="SPARK Celebrations – Premium event management in Bhimavaram. Private theaters, venue decor for birthdays, weddings & more. Call +91 99886 59759.">
+    
+    <!-- CDNs -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            DEFAULT: '#D4AF37',
+                            light: '#F9E27A',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black text-white font-poppins overflow-x-hidden">
+
+    <!-- Global Sparking Background -->
+    <canvas id="global-spark-canvas" class="fixed inset-0 z-[-1] pointer-events-none opacity-40"></canvas>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-xl border-b border-white/5 py-6 px-6 md:px-10 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-3">
+            <img src="https://lh3.googleusercontent.com/p/AF1QipPIO7irERRQ1oBmt8Rjt68KyYuAAznW3nCo90DC=w200" alt="SPARK Logo" class="h-12 md:h-16 w-auto rounded-full border border-gold/30 shadow-[0_0_15px_rgba(212,175,55,0.4)]">
+            <div class="flex flex-col">
+                <span class="logo-spark">SPARK</span>
+                <span class="logo-celebrations">CELEBRATIONS</span>
+            </div>
+        </a>
+
+        <div class="hidden lg:flex gap-10 items-center">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="services.html" class="nav-link">SERVICES</a>
+            <a href="gallery.html" class="nav-link">Gallery</a>
+            <a href="reviews.html" class="nav-link text-gold font-bold">Reviews</a>
+            <a href="contact-us.html" class="nav-link">CONTACT US</a>
+            <a href="index.html#booking-section" class="spark-btn bg-gold text-black font-black px-6 py-2 rounded-full ml-4 shadow-[0_0_20px_rgba(212,175,55,0.3)]">Book Now</a>
+        </div>
+
+        <button id="mobile-menu-btn" class="lg:hidden text-gold hover:scale-110 transition-transform focus:outline-none p-2 -mr-2">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-[110] bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-center gap-8 -translate-y-full transition-transform duration-500">
+        <button id="close-menu" class="absolute top-8 right-10 text-gold p-2">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <div class="flex flex-col items-center gap-10">
+            <a href="index.html" class="text-3xl font-playfair font-black text-white hover:text-gold transition-colors">HOME</a>
+            <a href="services.html" class="text-3xl font-playfair font-black text-white hover:text-gold transition-colors">SERVICES</a>
+            <a href="gallery.html" class="text-3xl font-playfair font-black text-white hover:text-gold transition-colors">GALLERY</a>
+            <a href="reviews.html" class="text-3xl font-playfair font-black text-gold">REVIEWS</a>
+            <a href="contact-us.html" class="text-3xl font-playfair font-black text-white hover:text-gold transition-colors">CONTACT US</a>
+            <a href="index.html#booking-section" class="text-3xl font-playfair font-black text-white hover:text-gold transition-colors">BOOK NOW</a>
+        </div>
+    </div>
+
+    <main class="pt-32 pb-20">
+        <!-- Header Section -->
+        <section class="container mx-auto px-6 mb-16 reveal-up">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-7xl font-playfair font-black italic mb-4">Real <span class="text-gold">Stories</span></h1>
+                <p class="text-gray-400 uppercase tracking-[0.5em] text-xs font-bold">What our clients say about us</p>
+                <div class="w-24 h-1 bg-gold mx-auto mt-6 rounded-full shadow-[0_0_15px_rgba(212,175,55,0.4)]"></div>
+                
+                <div class="mt-8 flex flex-col items-center gap-2">
+                    <div class="flex items-center gap-1 text-gold text-2xl">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="text-white font-bold tracking-widest uppercase text-[10px]">175+ Verified 5-Star Reviews on Google</p>
+                    <a href="https://www.google.com/maps/place/SPARK+Celebrations/@16.5519425,81.5316907,17z/data=!3m1!4b1!4m6!3m5!1s0x3a37cdd8b8089707:0xc0b8a09b2e3928f!8m2!3d16.5519425!4d81.5316907!16s%2Fg%2F11y0498k6c" target="_blank" class="text-gold text-[10px] hover:underline transition-all mt-1">View Original on Google Maps &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Reviews Grid -->
+        <section class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Review 1 -->
+                <div class="bg-white/5 backdrop-blur-xl p-8 rounded-[2.5rem] border border-white/10 hover:border-gold/30 transition-all group reveal-up relative overflow-hidden">
+                    <div class="absolute top-6 right-8 text-gold-light/20 text-6xl font-serif select-none pointer-events-none">"</div>
+                    <div class="flex items-center gap-1 text-gold mb-6">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="text-gray-300 italic leading-relaxed mb-10 text-sm md:text-base relative z-10">
+                        "The most creative event planners in Bhimavaram. They managed my sister's wedding flawlessly. The decorations and arrangements were beyond our expectations. Thank you SPARK!"
+                    </p>
+                    <div class="flex items-center gap-4 pt-6 border-t border-white/5">
+                        <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center font-bold text-gold text-lg">SK</div>
+                        <div>
+                            <div class="font-bold text-white text-sm">Suresh Kumar</div>
+                            <div class="text-[10px] text-gray-500 uppercase tracking-widest">Wedding Event</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white/5 backdrop-blur-xl p-8 rounded-[2.5rem] border border-white/10 hover:border-gold/30 transition-all group reveal-up relative overflow-hidden">
+                    <div class="absolute top-6 right-8 text-gold-light/20 text-6xl font-serif select-none pointer-events-none">"</div>
+                    <div class="flex items-center gap-1 text-gold mb-6">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="text-gray-300 italic leading-relaxed mb-10 text-sm md:text-base relative z-10">
+                        "Highly recommended for birthday celebrations. The decoration was unique and the team was very professional. They take care of everything so you can enjoy the moment."
+                    </p>
+                    <div class="flex items-center gap-4 pt-6 border-t border-white/5">
+                        <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center font-bold text-gold text-lg">PR</div>
+                        <div>
+                            <div class="font-bold text-white text-sm">Priya Raju</div>
+                            <div class="text-[10px] text-gray-500 uppercase tracking-widest">1st Birthday</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Review 4 -->
+                <div class="bg-white/5 backdrop-blur-xl p-8 rounded-[2.5rem] border border-white/10 hover:border-gold/30 transition-all group reveal-up relative overflow-hidden">
+                    <div class="absolute top-6 right-8 text-gold-light/20 text-6xl font-serif select-none pointer-events-none">"</div>
+                    <div class="flex items-center gap-1 text-gold mb-6">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="text-gray-300 italic leading-relaxed mb-10 text-sm md:text-base relative z-10">
+                        "Best event management in West Godavari district. Professional, punctual and very reasonable pricing. They transform any space into a magical setting."
+                    </p>
+                    <div class="flex items-center gap-4 pt-6 border-t border-white/5">
+                        <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center font-bold text-gold text-lg">VM</div>
+                        <div>
+                            <div class="font-bold text-white text-sm">Vijay M.</div>
+                            <div class="text-[10px] text-gray-500 uppercase tracking-widest">Corporate Event</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="bg-white/5 backdrop-blur-xl p-8 rounded-[2.5rem] border border-white/10 hover:border-gold/30 transition-all group reveal-up relative overflow-hidden">
+                    <div class="absolute top-6 right-8 text-gold-light/20 text-6xl font-serif select-none pointer-events-none">"</div>
+                    <div class="flex items-center gap-1 text-gold mb-6">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="text-gray-300 italic leading-relaxed mb-10 text-sm md:text-base relative z-10">
+                        "The surprise party they planned for my parents' anniversary was amazing. They were so touched. Every detail was perfect."
+                    </p>
+                    <div class="flex items-center gap-4 pt-6 border-t border-white/5">
+                        <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center font-bold text-gold text-lg">RV</div>
+                        <div>
+                            <div class="font-bold text-white text-sm">Ramya V.</div>
+                            <div class="text-[10px] text-gray-500 uppercase tracking-widest">Anniversary Surprise</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 6 -->
+                <div class="bg-white/5 backdrop-blur-xl p-8 rounded-[2.5rem] border border-white/10 hover:border-gold/30 transition-all group reveal-up relative overflow-hidden">
+                    <div class="absolute top-6 right-8 text-gold-light/20 text-6xl font-serif select-none pointer-events-none">"</div>
+                    <div class="flex items-center gap-1 text-gold mb-6">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="text-gray-300 italic leading-relaxed mb-10 text-sm md:text-base relative z-10">
+                        "SPARK Celebrations is truly the best. Their baby shower decoration was so cute and modern. Highly appreciate their dedication."
+                    </p>
+                    <div class="flex items-center gap-4 pt-6 border-t border-white/5">
+                        <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center font-bold text-gold text-lg">KS</div>
+                        <div>
+                            <div class="font-bold text-white text-sm">Kavya S.</div>
+                            <div class="text-[10px] text-gray-500 uppercase tracking-widest">Baby Shower</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="container mx-auto px-6 mt-24 text-center reveal-up">
+            <div class="max-w-2xl mx-auto bg-gold/5 p-12 rounded-[3rem] border border-gold/20">
+                <h2 class="text-3xl font-playfair font-black mb-6">Ready to Create Your Own <span class="text-gold italic">Story?</span></h2>
+                <a href="index.html#booking-section" class="spark-btn bg-gold text-black font-black px-12 py-5 rounded-full inline-block uppercase tracking-[0.3em] shadow-[0_10px_40px_rgba(212,175,55,0.3)]">Book Your Moment</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-24 bg-[#050505] border-t border-white/10 relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                    <h3 class="text-gold font-playfair font-bold text-2xl mb-10 tracking-wide underline decoration-gold/30 underline-offset-8">Quick Links</h3>
+                    <ul class="space-y-4">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-all">Home</a></li>
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-all">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition-all">Services</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 hover:text-white transition-all">Gallery</a></li>
+                        <li><a href="reviews.html" class="text-gold font-medium">Reviews</a></li>
+                        <li><a href="index.html#booking-section" class="text-gray-400 hover:text-white transition-all">Book Now</a></li>
+                        <li><a href="contact-us.html" class="text-gray-400 hover:text-white transition-all">Contact Us</a></li>
+                        <li><a href="privacy-policy.html" class="text-gray-400 hover:text-white transition-all">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html" class="text-gray-400 hover:text-white transition-all">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-gold font-playfair font-bold text-2xl mb-10 tracking-wide underline decoration-gold/30 underline-offset-8">Social</h3>
+                    <a href="https://www.instagram.com/spark.celebrations.bhimavaram/" target="_blank" class="text-gray-400 hover:text-white transition-all">Instagram @spark.celebrations.bhimavaram</a>
+                </div>
+                <div>
+                    <h3 class="text-gold font-playfair font-bold text-2xl mb-10 tracking-wide underline decoration-gold/30 underline-offset-8">Location</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Radhamurali Nilayam, Bypass Road, Bhimavaram</p>
+                </div>
+            </div>
+            <div class="mt-20 pt-10 border-t border-white/5 text-center text-gray-500 text-xs tracking-widest">
+                &copy; 2026 SPARK CELEBRATIONS. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Actions -->
+    <div class="fixed bottom-8 right-8 z-[100] flex flex-col gap-4 floating-actions-container">
+        <!-- WhatsApp -->
+        <a href="https://wa.me/919988659759" target="_blank" class="w-10 h-10 rounded-full bg-[#25D366] shadow-lg flex items-center justify-center hover:scale-110 transition-transform overflow-hidden relative group">
+            <div class="absolute inset-0 bg-white/20 animate-ping opacity-0 group-hover:opacity-100"></div>
+            <img src="assets/images/whatsapp_logo.png" alt="WhatsApp" class="w-5 h-5 object-contain z-10">
+        </a>
+        <!-- Call -->
+        <a href="tel:+919988659759" class="w-10 h-10 rounded-full bg-[#3b82f6] shadow-lg flex items-center justify-center hover:scale-110 transition-transform overflow-hidden relative group">
+            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3.2 3.45 3.2 3.99 3.2 13.38 10.82 21 20.21 21c.54 0 .99-.45.99-.99v-3.63c0-.55-.45-1-1-1z"/></svg>
+        </a>
+    </div>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Video Reviews Swiper
+        new Swiper('.videoReviewsSwiper', {
+            slidesPerView: 2,
+            spaceBetween: 10,
+            loop: true,
+            autoplay: { delay: 4000, disableOnInteraction: false },
+            pagination: { el: '.swiper-pagination', clickable: true },
+            breakpoints: {
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                },
+            },
+        });
+        
+        // GSAP Reveal Animations
+        gsap.utils.toArray('.reveal-up').forEach((elem) => {
+            gsap.fromTo(elem, 
+                { y: 50, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1.2,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: elem,
+                        start: "top 90%",
+                        toggleActions: "play none none none"
+                    }
+                }
+            );
+        });
+
+        // Global Sparking Motion
+        const bgCanvas = document.getElementById('global-spark-canvas');
+        const bgCtx = bgCanvas.getContext('2d');
+        let bgParticles = [];
+
+        function resizeBgCanvas() {
+            bgCanvas.width = window.innerWidth;
+            bgCanvas.height = window.innerHeight;
+        }
+
+        class BgParticle {
+            constructor() { this.reset(); }
+            reset() {
+                this.x = Math.random() * bgCanvas.width;
+                this.y = Math.random() * bgCanvas.height;
+                this.size = Math.random() * 1.5 + 0.5;
+                this.speedX = (Math.random() - 0.5) * 0.3;
+                this.speedY = (Math.random() - 0.5) * 0.3;
+                this.opacity = Math.random() * 0.5 + 0.1;
+                this.targetOpacity = this.opacity;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (Math.random() > 0.98) this.targetOpacity = Math.random() * 0.6 + 0.1;
+                this.opacity += (this.targetOpacity - this.opacity) * 0.05;
+                if (this.x < 0) this.x = bgCanvas.width;
+                if (this.x > bgCanvas.width) this.x = 0;
+                if (this.y < 0) this.y = bgCanvas.height;
+                if (this.y > bgCanvas.height) this.y = 0;
+            }
+            draw() {
+                bgCtx.fillStyle = `rgba(212, 175, 55, ${this.opacity})`;
+                bgCtx.shadowBlur = 4;
+                bgCtx.shadowColor = 'rgba(212, 175, 55, 0.5)';
+                bgCtx.beginPath();
+                bgCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                bgCtx.fill();
+            }
+        }
+
+        function initBgSparks() {
+            resizeBgCanvas();
+            const particleCount = Math.min(60, Math.floor(window.innerWidth / 15));
+            bgParticles = [];
+            for (let i = 0; i < particleCount; i++) bgParticles.push(new BgParticle());
+        }
+
+        function animateBgSparks() {
+            bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+            bgParticles.forEach(p => { p.update(); p.draw(); });
+            requestAnimationFrame(animateBgSparks);
+        }
+
+        window.addEventListener('resize', () => { resizeBgCanvas(); initBgSparks(); });
+        initBgSparks();
+        animateBgSparks();
+        // Navbar Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('-translate-y-full');
+        });
+
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('-translate-y-full');
+        });
+    </script>
+</body>
+</html>

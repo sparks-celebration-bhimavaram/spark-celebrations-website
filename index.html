@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta name="google-site-verification" content="46aPNrYZYtecrf4vN7ib_GL7Fpe5Ov_xUeBHK2OcYow" />
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SPARK Celebrations | Best Event Planners in Bhimavaram</title>
+    <link rel="icon" type="image/x-icon" href="favicon-circle.ico">
+
+    <meta name="description" content="SPARK Celebrations – Premium event management in Bhimavaram. Private theaters, venue decor for birthdays, weddings & more. Call +91 99886 59759.">
+
+    
+
+    <!-- CDNs -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    
+
+    <script>
+
+        tailwind.config = {
+
+            theme: {
+
+                extend: {
+
+                    colors: {
+
+                        maroon: {
+
+                            DEFAULT: '#4A0404',
+
+                            dark: '#2A0202',
+
+                        },
+
+                        gold: {
+
+                            DEFAULT: '#D4AF37',
+
+                            light: '#F9E27A',
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    </script>
+
+</head>
+<body class="bg-black text-white font-poppins overflow-x-hidden">
+
+    <!-- Global Sparking Background -->
+    <canvas id="global-spark-canvas" class="fixed inset-0 z-[-1] pointer-events-none opacity-40"></canvas>
+
+
+    <div id="intro-overlay" class="fixed inset-0 z-[1000] flex flex-col items-center justify-center bg-black overflow-hidden">
+        <!-- Ambient Background Canvas -->
+        <canvas id="intro-canvas" class="absolute inset-0 z-[-1] opacity-40"></canvas>
+        
+        <!-- Explosion Canvas (Hardware Accelerated) -->
+        <canvas id="explosion-canvas" class="absolute inset-0 z-0 pointer-events-none"></canvas>
+
+        <div id="intro-content" class="relative flex flex-col items-center justify-center opacity-0 transform scale-90 transition-all duration-700 p-12 w-full max-w-2xl">
+            <!-- Spark container (Kept as fallback or for small things) -->
+            <div id="sparks-container" class="absolute inset-0 pointer-events-none z-0"></div>
+
+            <!-- Warm Golden Sparks Background Effect -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] pointer-events-none z-0">
+                <!-- Warm Glow -->
+                <div class="absolute inset-0 bg-[radial-gradient(circle,rgba(212,175,55,0.3)_0%,rgba(212,175,55,0.1)_40%,transparent_70%)] rounded-full blur-[30px] animate-pulse-slow mix-blend-screen"></div>
+                
+                <!-- Rotating Sparks Ring -->
+                <div class="absolute inset-0 animate-spin" style="animation-duration: 25s; animation-timing-function: linear;">
+                    <div class="absolute top-[10%] left-[20%] w-3 h-3 bg-[#F9E27A] rounded-full shadow-[0_0_15px_#F9E27A] blur-[1px] animate-pulse"></div>
+                    <div class="absolute bottom-[20%] right-[10%] w-2 h-2 bg-[#D4AF37] rounded-full shadow-[0_0_10px_#D4AF37] blur-[1px] animate-pulse" style="animation-delay: 0.5s;"></div>
+                    <div class="absolute top-[40%] right-[5%] w-4 h-4 bg-white/80 rounded-full shadow-[0_0_20px_#fff] blur-[2px] animate-pulse" style="animation-delay: 1.2s;"></div>
+                    <div class="absolute bottom-[10%] left-[30%] w-2.5 h-2.5 bg-[#F9E27A] rounded-full shadow-[0_0_12px_#F9E27A] blur-[1px] animate-pulse" style="animation-delay: 1.8s;"></div>
+                </div>
+
+                <!-- Reverse Rotating Sparks Ring -->
+                <div class="absolute inset-0 animate-spin" style="animation-duration: 35s; animation-timing-function: linear; animation-direction: reverse;">
+                    <div class="absolute top-[30%] right-[25%] w-2 h-2 bg-[#D4AF37] rounded-full shadow-[0_0_12px_#D4AF37] blur-[1px] animate-pulse" style="animation-delay: 0.3s;"></div>
+                    <div class="absolute bottom-[35%] left-[15%] w-3 h-3 bg-[#F9E27A] rounded-full shadow-[0_0_18px_#F9E27A] blur-[1.5px] animate-pulse" style="animation-delay: 1.5s;"></div>
+                    <div class="absolute top-[15%] left-[45%] w-1.5 h-1.5 bg-white/90 rounded-full shadow-[0_0_10px_#fff] blur-[0.5px] animate-pulse" style="animation-delay: 0.8s;"></div>
+                </div>
+            </div>
+
+            <!-- Original Logo Image with filters and mask to remove background box -->
+            <!-- New Logo Image with small star on the left -->
+            <img id="intro-logo" src="assets/images/spark_logo_final.png" alt="SPARK Celebrations" class="relative z-10 max-w-[280px] md:max-w-[450px] h-auto border-none outline-none drop-shadow-[0_0_20px_rgba(212,175,55,0.3)]">
+            
+        </div>
+
+
+        <button id="skip-intro" class="absolute top-8 right-8 text-gold border border-gold/50 px-6 py-2 rounded-full hover:bg-gold hover:text-black transition-all z-[1010] text-[10px] font-bold uppercase tracking-widest">
+            Skip Intro
+        </button>
+    </div>
+
+
+
+    <!-- Main Navigation -->
+
+    <nav class="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-xl border-b border-white/5 py-6 px-6 md:px-10 flex justify-between items-center">
+
+        <a href="index.html" class="flex items-center gap-3">
+            <img src="https://lh3.googleusercontent.com/p/AF1QipPIO7irERRQ1oBmt8Rjt68KyYuAAznW3nCo90DC=w200" alt="SPARK Logo" class="h-12 md:h-16 w-auto rounded-full border border-gold/30 shadow-[0_0_15px_rgba(212,175,55,0.4)]" fetchpriority="high">
+            <div class="flex flex-col">
+                <span class="brand-title text-xl md:text-2xl leading-none">SPARK</span>
+                <span class="brand-subtitle text-[0.6rem] md:text-[0.7rem] leading-none mt-1">CELEBRATIONS</span>
+            </div>
+        </a>
+
+        <div class="hidden lg:flex items-center space-x-6">
+            <a href="index.html" class="text-white hover:text-gold transition-colors font-bold tracking-[0.2em] uppercase text-[10px] active">Home</a>
+            <a href="services.html" class="text-white/70 hover:text-gold transition-colors font-bold tracking-[0.2em] uppercase text-[10px]">Services</a>
+            <a href="gallery.html" class="text-white/70 hover:text-gold transition-colors font-bold tracking-[0.2em] uppercase text-[10px]">Gallery</a>
+            <a href="reviews.html" class="text-white/70 hover:text-gold transition-colors font-bold tracking-[0.2em] uppercase text-[10px]">Reviews</a>
+            <a href="contact-us.html" class="text-white/70 hover:text-gold transition-colors font-bold tracking-[0.2em] uppercase text-[10px]">Contact</a>
+            <a href="#booking-section" class="bg-gold text-black px-6 py-2.5 rounded-full font-black text-[10px] uppercase tracking-widest hover:scale-105 transition-all shadow-[0_5px_15px_rgba(212,175,55,0.3)]">Book Now</a>
+        </div>
+
+        <button id="mobile-menu-btn" class="lg:hidden text-gold hover:scale-110 transition-transform focus:outline-none p-2 -mr-2">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-3xl flex flex-col items-end justify-start pt-32 pr-12 -translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]">
+        <button id="close-menu" class="absolute top-8 right-10 text-gold p-2 hover:rotate-90 transition-transform duration-300">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        
+        <!-- Background "SPARK" Watermark -->
+        <div class="absolute inset-0 flex items-center justify-center opacity-[0.02] pointer-events-none select-none overflow-hidden">
+            <h2 class="text-[30vw] font-playfair font-black tracking-tighter">SPARK</h2>
+        </div>
+
+        <div class="relative z-10 flex flex-col items-end gap-5 text-right">
+            <a href="index.html" class="mobile-nav-link group">
+                <span class="block text-xl font-playfair font-black text-white group-hover:text-gold transition-colors duration-300">HOME</span>
+                <span class="block h-0.5 w-0 bg-gold group-hover:w-full transition-all duration-300"></span>
+            </a>
+            <a href="services.html" class="mobile-nav-link group">
+                <span class="block text-xl font-playfair font-black text-white group-hover:text-gold transition-colors duration-300">SERVICES</span>
+                <span class="block h-0.5 w-0 bg-gold group-hover:w-full transition-all duration-300"></span>
+            </a>
+            <a href="gallery.html" class="mobile-nav-link group">
+                <span class="block text-xl font-playfair font-black text-white group-hover:text-gold transition-colors duration-300">GALLERY</span>
+                <span class="block h-0.5 w-0 bg-gold group-hover:w-full transition-all duration-300"></span>
+            </a>
+            <a href="reviews.html" class="mobile-nav-link group">
+                <span class="block text-xl font-playfair font-black text-white group-hover:text-gold transition-colors duration-300">REVIEWS</span>
+                <span class="block h-0.5 w-0 bg-gold group-hover:w-full transition-all duration-300"></span>
+            </a>
+            <a href="contact-us.html" class="mobile-nav-link group">
+                <span class="block text-xl font-playfair font-black text-white group-hover:text-gold transition-colors duration-300">CONTACT</span>
+                <span class="block h-0.5 w-0 bg-gold group-hover:w-full transition-all duration-300"></span>
+            </a>
+        </div>
+
+        <!-- Mobile Social Link -->
+        <div class="absolute bottom-12 flex gap-8">
+            <a href="#" class="text-white/40 hover:text-gold transition-colors"><i class="fab fa-instagram text-2xl"></i></a>
+            <a href="#" class="text-white/40 hover:text-gold transition-colors"><i class="fab fa-whatsapp text-2xl"></i></a>
+            <a href="#" class="text-white/40 hover:text-gold transition-colors"><i class="fab fa-youtube text-2xl"></i></a>
+        </div>
+    </div>
+
+
+
+    <!-- Content Hidden Until Intro Ends -->
+
+    <main id="main-content" class="opacity-0">
+
+        <!-- Hero Section -->
+
+        <section class="relative min-h-screen md:min-h-[85vh] flex flex-col items-center justify-center overflow-hidden">
+
+            <div class="absolute inset-0 z-0 overflow-hidden bg-black">
+                <!-- Background Video -->
+                <video id="hero-bg-video" class="w-full h-full object-cover opacity-80" autoplay muted loop playsinline preload="none" poster="assets/images/intro_bg.jpg">
+                    <source src="assets/videos/intro.mp4" type="video/mp4">
+                </video>
+                
+                <!-- Gradient Overlays -->
+                <div class="absolute inset-0 bg-gradient-to-b from-black/90 via-transparent to-black"></div>
+                <div class="absolute inset-0 bg-black/40"></div>
+            </div>
+
+
+            
+
+            <div class="container mx-auto px-6 relative z-10 text-center flex flex-col items-center justify-center h-full pt-32 md:pt-40">
+                <h1 class="text-4xl md:text-5xl font-playfair font-black mb-6 md:mb-8 leading-tight drop-shadow-[0_10px_20px_rgba(0,0,0,0.9)] animate-pulse-slow">
+                    <span class="block mb-2 md:mb-4 text-white">Make Your Events</span>
+                    <span class="text-gold italic glow-gold block">Cherish Your Special Moments</span>
+                </h1>
+
+                <!-- Highlighted Subtext Tagline -->
+                <div class="mb-10 flex justify-center">
+                    <span class="inline-block bg-gold/10 text-gold font-black uppercase tracking-[0.2em] text-[9px] md:text-[11px] px-6 py-2 rounded-full border border-gold/30 backdrop-blur-sm shadow-[0_0_20px_rgba(212,175,55,0.15)] animate-bounce-subtle">
+                        Fast booking • Affordable packages • Trusted by happy customers
+                    </span>
+                </div>
+
+                <div class="flex flex-col items-center gap-8 md:gap-6 mt-6 md:mt-0">
+                    <a href="#booking-section" class="spark-btn border-2 border-gold text-gold font-black px-8 py-4 md:px-12 md:py-5 rounded-full text-base md:text-sm md:text-lg tracking-widest hover:bg-gold hover:text-black transition-all flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(212,175,55,0.2)]">
+                        BOOK YOUR CELEBRATION NOW <span class="highlight-emoji text-2xl">🎉</span>
+                    </a>
+                    
+                    <!-- Trust Badges -->
+                    <div class="mt-8 flex items-center gap-4 md:gap-8 opacity-90 reveal-up">
+                        <div class="flex items-center gap-2 text-white/90 text-[10px] md:text-xs font-bold uppercase tracking-widest">
+                            <span class="text-gold">⭐</span> 100+ Happy Customers
+                        </div>
+                        <div class="hidden md:block w-1 h-1 rounded-full bg-gold/50"></div>
+                        <div class="flex items-center gap-2 text-white/90 text-[10px] md:text-xs font-bold uppercase tracking-widest">
+                            <span class="text-gold">🎉</span> Multiple Successful Events
+                        </div>
+                    </div>
+
+                    <!-- Mobile Scroll Indicator -->
+                    <div class="md:hidden flex flex-col items-center gap-3 opacity-60 mt-4">
+                        <div class="w-6 h-10 border-2 border-gold rounded-full relative">
+                            <div class="w-1 h-2 bg-gold rounded-full absolute top-2 left-1/2 -translate-x-1/2 animate-mouse-wheel"></div>
+                        </div>
+                        <span class="text-[8px] uppercase tracking-[0.3em] text-gold font-bold">Scroll</span>
+                    </div>
+
+                    <!-- Desktop Scroll Indicator -->
+                    <div class="hidden md:flex flex-col items-center gap-1 opacity-60">
+                        <div class="w-5 h-8 border-2 border-gold rounded-full relative">
+                            <div class="w-1 h-2 bg-gold rounded-full absolute top-1 left-1/2 -translate-x-1/2 animate-mouse-wheel"></div>
+                        </div>
+                        <span class="text-[7px] uppercase tracking-[0.3em] text-gold font-bold">Scroll</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+
+
+
+
+
+
+        <!-- Services Section -->
+
+
+
+
+
+
+
+        <!-- Service Selector Section -->
+        <section id="service-selector" class="py-24 bg-black relative border-b border-white/5 overflow-hidden">
+            <!-- Background Glow Decoration -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gold/5 blur-[150px] rounded-full pointer-events-none"></div>
+
+            <div class="container mx-auto px-6 relative z-10 text-center">
+                <div class="reveal-up mb-20 text-center">
+                    <h2 class="text-3xl md:text-5xl font-playfair font-black text-white leading-tight uppercase tracking-tighter">
+                        What do you <br><span class="text-gold italic glow-gold">want today?</span>
+                    </h2>
+                    <div class="w-16 h-1 bg-gold mx-auto mt-8 rounded-full shadow-[0_0_15px_rgba(212,175,55,0.5)] opacity-50"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 max-w-3xl mx-auto px-4">
+                    <!-- Left/Center: 🎥 Private Theater -->
+                    <div class="reveal-up h-full">
+                        <a href="services/private-theater.html" class="group block h-full bg-white/[0.03] border border-white/10 p-5 md:p-6 rounded-[2.5rem] transition-all duration-700 hover:border-gold/60 hover:bg-gold/[0.08] relative overflow-hidden backdrop-blur-xl text-center shining-card">
+                            <div class="relative z-10 flex flex-col items-center justify-center h-full">
+                                <div class="text-3xl md:text-4xl mb-4 md:mb-6 transform group-hover:scale-110 transition-all">🎥</div>
+                                <h3 class="text-base md:text-xl font-playfair font-black mb-2 text-white group-hover:text-gold transition-colors tracking-tight uppercase">Private Theater</h3>
+                                <p class="text-sm md:text-[9px] uppercase tracking-[0.3em] font-bold opacity-40">Luxury Experience</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Right: 🎉 Venue Decoration -->
+                    <div class="reveal-up h-full">
+                        <a href="services/venue-decor.html" class="group block h-full bg-white/[0.03] border border-white/10 p-5 md:p-6 rounded-[2.5rem] transition-all duration-700 hover:border-gold/60 hover:bg-gold/[0.08] relative overflow-hidden backdrop-blur-xl text-center shining-card">
+                            <div class="relative z-10 flex flex-col items-center justify-center h-full">
+                                <div class="text-3xl md:text-4xl mb-4 md:mb-6 transform group-hover:scale-110 transition-all">🎉</div>
+                                <h3 class="text-base md:text-xl font-playfair font-black mb-2 text-white group-hover:text-gold transition-colors tracking-tight uppercase">Venue Decor</h3>
+                                <p class="text-sm md:text-[9px] uppercase tracking-[0.3em] font-bold opacity-40">Royal Setups</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+        <!-- Explore Gallery Button Row -->
+        <div class="flex justify-center mt-12 md:mt-20 mb-20 relative z-20 reveal-up">
+            <a href="gallery.html" class="group relative px-12 py-5 rounded-full border-2 border-gold/40 text-gold font-black uppercase tracking-[0.4em] text-[11px] transition-all overflow-hidden bg-gold/10 hover:bg-gold hover:text-black shadow-[0_0_40px_rgba(212,175,55,0.3)] animate-pulse-gold-intense shimmer-active">
+                <span class="relative z-10 flex items-center gap-3">
+                    Explore Gallery
+                    <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </span>
+            </a>
+        </div>
+
+
+
+        <section class="py-10 border-y border-white/5 bg-white/[0.02] sparkle-bg relative overflow-hidden">
+
+            <div class="container mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 text-center">
+
+                <div class="flex gap-2 text-gold text-sm">
+                    <svg class="w-6 h-6 md:w-7 md:h-7 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                    <svg class="w-6 h-6 md:w-7 md:h-7 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                    <svg class="w-6 h-6 md:w-7 md:h-7 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                    <svg class="w-6 h-6 md:w-7 md:h-7 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                    <svg class="w-6 h-6 md:w-7 md:h-7 fill-current opacity-90" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                </div>
+
+                <div>
+
+                    <h3 class="text-xl font-playfair font-bold">4.6 / 5 Stars</h3>
+                    <p class="text-gray-400 text-[10px] mt-1 uppercase tracking-widest font-bold">175+ Verified Reviews · Most Trusted Event Brand</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Other Services (Secondary) -->
+        <section class="py-12 bg-black relative border-t border-white/5">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-10">
+                        <h2 class="text-3xl md:text-5xl font-playfair font-black text-gold glow-gold uppercase tracking-tighter italic mb-4">Other Services</h2>
+                        <div class="w-24 h-1.5 bg-gold mx-auto mt-6 rounded-full shadow-[0_0_15px_rgba(212,175,55,0.4)]"></div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Private Theater -->
+                        <div class="bg-white/[0.03] border border-white/10 p-6 md:p-8 rounded-[2rem] md:rounded-3xl backdrop-blur-xl hover:border-gold/40 transition-all group overflow-hidden">
+                            <div class="flex justify-between items-center gap-4">
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <span class="text-3xl">🎥</span>
+                                        <h3 class="text-xl font-playfair font-bold text-white group-hover:text-gold transition-colors uppercase tracking-tight">Private Theater</h3>
+                                    </div>
+                                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">Perfect for surprises & couple celebrations</p>
+                                    <div class="flex flex-col gap-3">
+                                        <div class="text-gold font-black text-lg">Budget Friendly</div>
+                                        <a href="services/private-theater.html" class="spark-btn inline-block bg-white/5 border border-white/20 text-white font-bold py-3 px-6 rounded-xl text-xs uppercase tracking-widest hover:bg-gold hover:text-black hover:border-gold transition-all text-center">
+                                            Book Now
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Venue Decoration -->
+                        <div class="bg-white/[0.03] border border-white/10 p-6 md:p-8 rounded-[2rem] md:rounded-3xl backdrop-blur-xl hover:border-gold/40 transition-all group overflow-hidden">
+                            <div class="flex justify-between items-center gap-4">
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <span class="text-3xl">🎊</span>
+                                        <h3 class="text-xl font-playfair font-bold text-white group-hover:text-gold transition-colors uppercase tracking-tight">Venue Decor</h3>
+                                    </div>
+                                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">Beautiful setups for all events</p>
+                                    <div class="flex flex-col gap-3">
+                                        <div class="text-gold font-black text-lg">Custom pricing</div>
+                                        <a href="services/venue-decor.html" class="spark-btn inline-block bg-white/5 border border-white/20 text-white font-bold py-3 px-6 rounded-xl text-xs uppercase tracking-widest hover:bg-gold hover:text-black hover:border-gold transition-all text-center">
+                                            Book Now
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 animate-float-icon relative" style="animation-delay: 1s;">
+                                    <div class="absolute inset-0 bg-gold/10 blur-2xl rounded-full opacity-30"></div>
+                                    <img src="assets/images/venue_decor_icon.png" alt="Venue Decor Icon" class="w-full h-full object-contain relative z-10">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+        <!-- Why People Choose You Section -->
+        <section id="why-choose-us" class="py-12 md:py-20 bg-black relative border-t border-white/5">
+            <style>
+                @keyframes pulse-gold-border {
+                    0% { border-color: rgba(255, 255, 255, 0.1); box-shadow: 0 0 0 rgba(212, 175, 55, 0); }
+                    50% { border-color: rgba(212, 175, 55, 0.5); box-shadow: 0 0 25px rgba(212, 175, 55, 0.2); }
+                    100% { border-color: rgba(255, 255, 255, 0.1); box-shadow: 0 0 0 rgba(212, 175, 55, 0); }
+                }
+                @keyframes float-subtle {
+                    0% { transform: translateY(0px) rotate(0deg); }
+                    50% { transform: translateY(-8px) rotate(3deg); }
+                    100% { transform: translateY(0px) rotate(0deg); }
+                }
+                .animate-pulse-gold {
+                    animation: pulse-gold-border 3s ease-in-out infinite;
+                }
+                .animate-float-icon {
+                    animation: float-subtle 4s ease-in-out infinite;
+                }
+            </style>
+
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-16 reveal-up">
+                    <h2 class="text-3xl md:text-4xl font-playfair font-black text-white tracking-tighter uppercase leading-tight">
+                        Why People Choose <span class="text-gold italic glow-gold">Spark CELEBRATIONS</span>
+                    </h2>
+                    <div class="w-24 h-1.5 bg-gold mx-auto mt-6 rounded-full shadow-[0_0_15px_rgba(212,175,55,0.4)]"></div>
+                </div>
+
+                <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto">
+                    <!-- Item 1 -->
+                    <div class="reveal-up" style="transition-delay: 0.1s;">
+                        <div class="h-full bg-white/[0.02] border border-white/5 p-6 rounded-2xl transition-all duration-300 group text-center hover:border-gold/40 hover:bg-gold/5">
+                            <div class="text-3xl mb-3 opacity-80 group-hover:opacity-100 transition-opacity">🎬</div>
+                            <h3 class="text-white/80 group-hover:text-white font-bold tracking-wider uppercase text-sm md:text-[11px] leading-tight">Premium & budget-friendly <br>private theaters</h3>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="reveal-up" style="transition-delay: 0.15s;">
+                        <div class="h-full bg-white/[0.02] border border-white/5 p-6 rounded-2xl transition-all duration-300 group text-center hover:border-gold/40 hover:bg-gold/5">
+                            <div class="text-3xl mb-3 opacity-80 group-hover:opacity-100 transition-opacity">🔒</div>
+                            <h3 class="text-white/80 group-hover:text-white font-bold tracking-wider uppercase text-sm md:text-[11px] leading-tight">100% privacy & <br>safe environment</h3>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="reveal-up" style="transition-delay: 0.2s;">
+                        <div class="h-full bg-white/[0.02] border border-white/5 p-6 rounded-2xl transition-all duration-300 group text-center hover:border-gold/40 hover:bg-gold/5">
+                            <div class="text-3xl mb-3 opacity-80 group-hover:opacity-100 transition-opacity">🚗</div>
+                            <h3 class="text-white/80 group-hover:text-white font-bold tracking-wider uppercase text-sm md:text-[11px] leading-tight">Free parking for <br>stress-free visits</h3>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="reveal-up" style="transition-delay: 0.25s;">
+                        <div class="h-full bg-white/[0.02] border border-white/5 p-6 rounded-2xl transition-all duration-300 group text-center hover:border-gold/40 hover:bg-gold/5">
+                            <div class="text-3xl mb-3 opacity-80 group-hover:opacity-100 transition-opacity">🍽️</div>
+                            <h3 class="text-white/80 group-hover:text-white font-bold tracking-wider uppercase text-sm md:text-[11px] leading-tight">Dining + celebration <br>in one place</h3>
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="reveal-up" style="transition-delay: 0.3s;">
+                        <div class="h-full bg-white/[0.02] border border-white/5 p-6 rounded-2xl transition-all duration-300 group text-center hover:border-gold/40 hover:bg-gold/5">
+                            <div class="text-3xl mb-3 opacity-80 group-hover:opacity-100 transition-opacity">🎉</div>
+                            <h3 class="text-white/80 group-hover:text-white font-bold tracking-wider uppercase text-sm md:text-[11px] leading-tight">Spacious & <br>comfortable setup</h3>
+                        </div>
+                    </div>
+
+                    <!-- Item 6 -->
+                    <div class="reveal-up" style="transition-delay: 0.35s;">
+                        <div class="h-full bg-white/[0.02] border border-white/5 p-6 rounded-2xl transition-all duration-300 group text-center hover:border-gold/40 hover:bg-gold/5">
+                            <div class="text-3xl mb-3 opacity-80 group-hover:opacity-100 transition-opacity">🎂</div>
+                            <h3 class="text-white/80 group-hover:text-white font-bold tracking-wider uppercase text-sm md:text-[11px] leading-tight">Perfect for <br>all events</h3>
+                        </div>
+                    </div>
+
+                    <!-- Item 7 -->
+                    <div class="reveal-up" style="transition-delay: 0.4s;">
+                        <div class="h-full bg-white/[0.02] border border-white/5 p-6 rounded-2xl transition-all duration-300 group text-center hover:border-gold/40 hover:bg-gold/5">
+                            <div class="text-3xl mb-3 opacity-80 group-hover:opacity-100 transition-opacity">✨</div>
+                            <h3 class="text-white/80 group-hover:text-white font-bold tracking-wider uppercase text-sm md:text-[11px] leading-tight">Premium decoration <br>& photography</h3>
+                        </div>
+                    </div>
+
+                    <!-- Item 8 -->
+                    <div class="reveal-up" style="transition-delay: 0.45s;">
+                        <div class="h-full bg-white/[0.02] border border-white/5 p-6 rounded-2xl transition-all duration-300 group text-center hover:border-gold/40 hover:bg-gold/5">
+                            <div class="text-3xl mb-3 opacity-80 group-hover:opacity-100 transition-opacity">🎊</div>
+                            <h3 class="text-white/80 group-hover:text-white font-bold tracking-wider uppercase text-sm md:text-[11px] leading-tight">Complete venue <br>decoration services</h3>
+                        </div>
+                    </div>
+
+                    <!-- Item 9 -->
+                    <div class="reveal-up" style="transition-delay: 0.5s;">
+                        <div class="h-full bg-white/[0.02] border border-white/5 p-6 rounded-2xl transition-all duration-300 group text-center hover:border-gold/40 hover:bg-gold/5">
+                            <div class="text-3xl mb-3 opacity-80 group-hover:opacity-100 transition-opacity">🧯</div>
+                            <h3 class="text-white/80 group-hover:text-white font-bold tracking-wider uppercase text-sm md:text-[11px] leading-tight">Fire safety measures <br>installed for secure events</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NEW: Attractive BOOK NOW Button -->
+                <div class="mt-16 flex justify-center reveal-up">
+                    <a href="#booking-section" class="group relative inline-flex items-center gap-3 bg-gradient-to-r from-gold via-[#F9E27A] to-gold text-black font-black px-12 py-4 md:py-5 rounded-full text-base md:text-lg uppercase tracking-widest shadow-[0_20px_50px_rgba(212,175,55,0.3)] hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden">
+                        <span class="relative z-10 flex items-center gap-2">
+                            BOOK NOW &rarr;
+                        </span>
+                        <!-- Shimmering Light Effect -->
+                        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Home Mini Gallery (Glimpse of Magic) -->
+        <section class="py-20 bg-black sparkle-bg relative overflow-hidden isolate">
+            <!-- Removed Background Image -->
+            <div class="absolute inset-0 z-[-2] pointer-events-none overflow-hidden bg-black">
+                <div class="absolute inset-0 bg-black pointer-events-none"></div>
+            </div>
+
+            <div class="container mx-auto px-6 mb-12 text-center text-gray-400 uppercase tracking-[0.5em] text-xs font-black">
+                A Glimpse of Our Magic
+            </div>
+            
+            <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-10 hide-scrollbar md:justify-center">
+
+
+                <!-- Birthday Image 2 -->
+                <div class="group relative h-[180px] md:h-[280px] rounded-3xl overflow-hidden min-w-[65vw] md:min-w-[200px] snap-center shrink-0 border border-white/10">
+                    <img src="https://lh3.googleusercontent.com/p/AF1QipMSlrfNDW4YKE-FI3GvzSCyiI4tMu6eR-2v6Sik=w800" class="w-full h-full object-cover" alt="Birthday Party Event">
+                </div>
+
+                <!-- Theater Image -->
+                <div class="group relative h-[180px] md:h-[280px] rounded-3xl overflow-hidden min-w-[65vw] md:min-w-[260px] snap-center shrink-0 border border-white/10">
+                    <img src="assets/images/jubliee-theater/slide-1.webp" class="w-full h-full object-cover" alt="Private Theater">
+                </div>
+            </div>
+
+
+
+        </section>
+
+
+        <!-- Real Stories / Testimonials -->
+
+        <section class="pt-2 pb-8 bg-black sparkle-bg relative overflow-hidden">
+
+            <div class="container mx-auto px-4 md:px-6">
+
+                <!-- Swiper -->
+
+                <div class="swiper testimonialSwiper">
+
+
+
+                    <div class="swiper-wrapper pb-8">
+
+                        <div class="swiper-slide">
+
+                            <div class="bg-white/5 rounded-3xl p-6 border border-white/10 max-w-2xl mx-auto text-center">
+
+                                <div class="flex justify-center gap-1 text-gold mb-3">
+
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                                    <svg class="w-4 h-4 fill-current opacity-90" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                                </div>
+
+                                <p class="text-gray-300 text-sm italic leading-relaxed mb-4">"We had our daughter's 1st birthday here and the team was just incredible. The custom decorations and planning made our family celebration unforgettable. Highly recommend SPARK Celebrations!"</p>
+
+                                <div class="font-bold text-gold">Priya Raju</div>
+
+                                <div class="text-gray-600 text-xs mt-1 uppercase tracking-widest">Birthday Celebration, Bhimavaram</div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="swiper-slide">
+
+                            <div class="bg-white/5 rounded-3xl p-6 border border-white/10 max-w-2xl mx-auto text-center">
+
+                                <div class="flex justify-center gap-1 text-gold mb-3">
+
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                                    <svg class="w-4 h-4 fill-current opacity-90" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+
+                                </div>
+
+                                <p class="text-gray-300 text-sm italic leading-relaxed mb-4">"Booked the private theater for our anniversary and it was beyond all expectations. The decor, food, and ambiance were absolutely perfect. SPARK is the real deal!"</p>
+
+                                <div class="font-bold text-gold">Kiran Varma</div>
+
+                                <div class="text-gray-600 text-xs mt-1 uppercase tracking-widest">Private Theater Anniversary, Bhimavaram</div>
+
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="swiper-pagination"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- CONTACT US / Location (Hidden on Mobile, Constant on Desktop) -->
+        <section id="contact" class="hidden lg:block pt-16 pb-24 relative overflow-hidden" style="background:#080000">
+            <!-- Removed background image -->
+            <div class="absolute inset-0 z-0 pointer-events-none opacity-20">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#080000] via-transparent to-[#080000]"></div>
+            </div>
+            <div class="container mx-auto px-6 relative z-10">
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+                    <div>
+
+                        <h2 class="text-2xl md:text-6xl font-playfair font-bold mb-8">Find <span class="text-gold italic">Us</span></h2>
+
+                        <div class="space-y-3 md:space-y-8 text-gray-300">
+                            <!-- Address -->
+                            <div class="flex gap-3 md:gap-5 items-start">
+                                <span class="bg-gold/10 p-2 md:p-3 rounded-xl shrink-0 group">
+                                    <svg class="w-5 h-5 md:w-6 md:h-6 text-gold group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                </span>
+                                <div>
+                                    <div class="font-bold text-white mb-0 md:mb-1 text-sm md:text-lg">Address</div>
+                                    <p class="leading-relaxed opacity-80 text-xs md:text-base">Radhamurali Nilayam, Narasayyaagraharam, Bhimavaram.</p>
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="flex gap-3 md:gap-5 items-start">
+                                <span class="bg-gold/10 p-2 md:p-3 rounded-xl shrink-0">
+                                    <svg class="w-5 h-5 md:w-6 md:h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                                </span>
+                                <div>
+                                    <div class="font-bold text-white mb-0 md:mb-1 text-sm md:text-lg">Email</div>
+                                    <a href="mailto:sparkcelebrations759@gmail.com" class="text-gray-400 hover:text-gold transition-colors block text-xs md:text-base">sparkcelebrations759@gmail.com</a>
+                                </div>
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="flex gap-3 md:gap-5 items-start">
+                                <span class="bg-gold/10 p-2 md:p-3 rounded-xl shrink-0">
+                                    <svg class="w-5 h-5 md:w-6 md:h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                                </span>
+                                <div>
+                                    <div class="font-bold text-white mb-0 md:mb-1 text-sm md:text-lg">Call Us</div>
+                                    <a href="tel:+919988659759" class="text-gold hover:text-gold-light transition-colors font-bold tracking-wider block text-xs md:text-base">+91 99886 59759</a>
+                                </div>
+                            </div>
+
+                            <!-- Hours -->
+                            <div class="flex gap-3 md:gap-5 items-start">
+                                <span class="bg-gold/10 p-2 md:p-3 rounded-xl shrink-0">
+                                    <svg class="w-5 h-5 md:w-6 md:h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                </span>
+                                <div>
+                                    <div class="font-bold text-white mb-0 md:mb-1 text-sm md:text-lg">Hours</div>
+                                    <p class="opacity-80 text-xs md:text-base">9:00 AM – 9:00 PM</p>
+                                </div>
+                            </div>
+
+                            <!-- Instagram -->
+                            <div class="flex gap-3 md:gap-5 items-start">
+                                <span class="bg-gold/10 p-2 md:p-3 rounded-xl shrink-0">
+                                    <svg class="w-5 h-5 md:w-6 md:h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                                </span>
+                                <div>
+                                    <div class="font-bold text-white mb-0 md:mb-1 text-sm md:text-lg">Instagram</div>
+                                    <a href="https://www.instagram.com/spark.celebrations.bhimavaram/" target="_blank" class="gold-gradient-text hover:underline font-bold transition-all block text-xs md:text-base">@spark.celebrations.bhimavaram</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="rounded-3xl overflow-hidden h-[400px] border border-white/10">
+
+                        <iframe
+
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3823.8647285977!2d81.5291158!3d16.5519476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a37cdd8b8089707%3A0xc0b8a09b2e3928f!2sSPARK%20Celebrations!5e0!3m2!1sen!2sin!4v1680000000000"
+
+                            width="100%" height="100%" style="border:0;filter:invert(90%) hue-rotate(180deg);" allowfullscreen loading="lazy">
+
+                        </iframe>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Slot Booking Session -->
+        <section id="booking-section" class="py-4 md:py-8 relative bg-black overflow-hidden isolate">
+
+            <div class="absolute inset-0 z-[-1] opacity-20">
+
+                <img src="assets/images/booking_bg.jpg" class="w-full h-full object-cover">
+
+            </div>
+
+            <div class="container mx-auto px-4 md:px-6 relative">
+
+                <div class="max-w-xl mx-auto bg-white/5 backdrop-blur-3xl p-6 md:p-6 rounded-[1.5rem] border border-white/10 shadow-2xl">
+
+                    <div class="text-center mb-6 md:mb-8">
+
+                        <p class="inline-block bg-gold text-black font-black px-8 md:px-10 py-3 rounded-full uppercase tracking-widest text-[10px] md:text-xs shadow-[0_0_20px_rgba(212,175,55,0.4)]">Reservation Portal</p>
+
+                    </div>
+
+
+
+                    <form onsubmit="event.preventDefault(); window.whatsappRedirect({
+
+                        name: document.getElementById('home-name').value,
+
+                        userPhone: document.getElementById('home-phone').value,
+
+                        email: document.getElementById('home-email').value,
+
+                        eventType: document.getElementById('home-event-type').value,
+
+                        date: document.getElementById('home-event-date').value,
+
+                        details: document.getElementById('home-details').value
+
+                    }, '919988659759')" class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+
+
+
+                        <div class="space-y-1.5 text-left">
+
+                            <label class="text-gold text-sm md:text-[9px] uppercase tracking-widest font-bold ml-4">Full Name</label>
+
+                            <input type="text" id="home-name" placeholder="Enter your name" required class="w-full bg-white/10 border border-white/10 px-6 py-3 rounded-xl outline-none focus:border-gold transition-all text-base md:text-xs">
+
+                        </div>
+
+
+
+                        <div class="space-y-1.5 text-left">
+
+                            <label class="text-gold text-sm md:text-[9px] uppercase tracking-widest font-bold ml-4">Phone Number</label>
+
+                            <input type="tel" id="home-phone" placeholder="WhatsApp Number" required class="w-full bg-white/10 border border-white/10 px-6 py-3 rounded-xl outline-none focus:border-gold transition-all text-base md:text-xs">
+
+                        </div>
+
+
+
+                        <div class="space-y-1.5 text-left">
+
+                            <label class="text-gold text-sm md:text-[9px] uppercase tracking-widest font-bold ml-4">Email Address</label>
+
+                            <input type="email" id="home-email" placeholder="Email Address" required class="w-full bg-white/10 border border-white/10 px-6 py-3 rounded-xl outline-none focus:border-gold transition-all text-base md:text-xs">
+
+                        </div>
+
+
+
+                        <div class="space-y-1.5 text-left">
+
+                            <label class="text-gold text-sm md:text-[9px] uppercase tracking-widest font-bold ml-4">Event Type</label>
+
+                            <select id="home-event-type" class="w-full bg-white/10 border border-white/10 px-6 py-3 rounded-xl outline-none focus:border-gold transition-all text-gray-400 text-base md:text-xs">
+
+                                <option value="" disabled selected>Select Service</option>
+
+                                <option value="Birthday">BIRTHDAY</option>
+
+                                <option value="Engagement">ENGAGEMENT</option>
+
+                                <option value="Wedding">WEDDING</option>
+
+                                <option value="Surprise">SURPRISE</option>
+
+                                <option value="Proposal">PROPOSAL</option>
+
+                                <option value="Baby Shower">BABY SHOWER</option>
+
+                                <option value="Anniversary">ANNIVERSARY</option>
+
+                                <option value="Festival Decor">FESTIVAL DECOR</option>
+
+                                <option value="Corporate Event">CORPORATE EVENT</option>
+
+                                <option value="Shastipoorthi">SHASTIPOORTHI</option>
+
+                                <option value="Naming Ceremony">BABY NAMING CEREMONY</option>
+
+                                <option value="Housewarming">HOUSEWARMING</option>
+
+                                <option value="Mature Function">MATURE FUNCTION</option>
+
+                                <option value="Concerts & Fests">CONCERTS & FESTS</option>
+
+                                <option value="College Farewells">COLLEGE FAREWELLS</option>
+
+                                <option value="Public Events">PUBLIC EVENTS</option>
+
+                                <option value="Educational">EDUCATIONAL</option>
+
+                                <option value="Other">OTHER</option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <div class="space-y-1.5 text-left">
+
+                            <label class="text-gold text-sm md:text-[9px] uppercase tracking-widest font-bold ml-4">Preferred Date</label>
+
+                            <input type="date" id="home-event-date" class="w-full bg-white/10 border border-white/10 px-6 py-3 rounded-xl outline-none focus:border-gold transition-all text-gray-400 text-base md:text-xs">
+
+                        </div>
+
+
+
+                        <div class="md:col-span-2 space-y-1.5 text-left">
+
+                            <label class="text-gold text-sm md:text-[9px] uppercase tracking-widest font-bold ml-4">Special Requirements</label>
+
+                            <textarea id="home-details" placeholder="Tell us more about your dream..." class="w-full bg-white/10 border border-white/10 px-6 py-3 rounded-xl h-24 outline-none focus:border-gold transition-all text-base md:text-xs"></textarea>
+
+                        </div>
+
+
+
+                        <button type="submit" id="booking-submit" class="md:col-span-2 mx-auto w-full max-w-[240px] spark-btn bg-gold text-black font-black py-3 rounded-xl text-xs uppercase tracking-widest shadow-[0_10px_30px_rgba(212,175,55,0.2)] mt-2">
+
+                            SUBMIT
+
+                        </button>
+
+                    </form>
+
+                    <div id="success-message" class="hidden text-center py-10">
+
+                        <div class="text-gold text-5xl mb-4">✓</div>
+
+                        <h3 class="text-2xl font-playfair font-black text-white mb-2">Thank you!</h3>
+
+                        <p class="text-gray-400">We've received your booking request. Our team will contact you within a hours.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+
+
+        <!-- Footer -->
+
+        <!-- Final Premium Footer -->
+        <footer class="py-4 md:py-24 bg-[#050505] border-t border-white/10 relative overflow-hidden">
+            <!-- Removed Background Decoration -->
+
+
+            <div class="container mx-auto px-4 md:px-6 relative z-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16">
+                    
+                    <!-- Brand Column -->
+                    <div class="lg:col-span-3 space-y-6 md:space-y-10">
+                        <div class="space-y-1 md:space-y-2 text-center md:text-left">
+                            <h2 class="text-3xl md:text-5xl font-playfair font-black text-white leading-tight">Concept.</h2>
+                            <h2 class="text-3xl md:text-5xl font-playfair font-black text-gold leading-tight">Create.</h2>
+                            <h2 class="text-3xl md:text-5xl font-playfair font-black text-white leading-tight">Celebrate.</h2>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <a href="tel:+919988659759" class="flex items-center gap-4 text-gray-300 hover:text-gold transition-colors group">
+                                <span class="bg-gold/10 p-2.5 rounded-lg group-hover:bg-gold/20 transition-all">
+                                    <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                                </span>
+                                <span class="font-bold tracking-wider">+91 99886 59759</span>
+                            </a>
+                            <a href="mailto:sparkcelebrations759@gmail.com" class="flex items-center gap-4 text-gray-300 hover:text-gold transition-colors group">
+                                <span class="bg-gold/10 p-2.5 rounded-lg group-hover:bg-gold/20 transition-all">
+                                    <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                                </span>
+                                <span class="font-bold tracking-wider text-sm break-all">sparkcelebrations759@gmail.com</span>
+                            </a>
+                            <a href="https://www.instagram.com/spark.celebrations.bhimavaram/" target="_blank" class="flex items-center gap-4 text-white group">
+                                <span class="bg-gold/10 p-2.5 rounded-lg shrink-0 group-hover:bg-gold/20 transition-all">
+                                    <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                                </span>
+                                <span class="font-bold tracking-widest text-sm">@spark.celebrations.bhimavaram</span>
+                            </a>
+                            <a href="https://www.google.com/maps/place/SPARK+Celebrations/@16.5519425,81.5316907,17z/data=!3m1!4b1!4m6!3m5!1s0x3a37cdd8b8089707:0xc0b8a09b2e3928f!8m2!3d16.5519425!4d81.5316907!16s%2Fg%2F11y0498k6c" target="_blank" class="flex items-start gap-4 text-gray-400 hover:text-gold transition-all group">
+                                <span class="bg-gold/10 p-2.5 rounded-lg shrink-0 group-hover:bg-gold/20 transition-all">
+                                    <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                                </span>
+                                <span class="text-xs leading-relaxed font-medium">Radhamurali Nilayam, Bypass Road,<br>near Railway Gate, Narasayyaagraharam,<br>Bhimavaram, Andhra Pradesh 534201</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links Column -->
+                    <div class="lg:col-span-1">
+                        <h3 class="text-gold font-playfair font-bold text-lg md:text-2xl mb-2 md:mb-10 tracking-wide underline decoration-gold/30 underline-offset-8">Quick Links</h3>
+                        <ul class="space-y-2 md:space-y-4">
+                            <li><a href="index.html" class="text-gray-400 hover:text-white hover:translate-x-2 transition-all inline-block font-medium">Home</a></li>
+                            <li><a href="index.html" class="text-gray-400 hover:text-white hover:translate-x-2 transition-all inline-block font-medium">About Us</a></li>
+                            <li><a href="gallery.html" class="text-gray-400 hover:text-white hover:translate-x-2 transition-all inline-block font-medium">Gallery</a></li>
+                            <li><a href="reviews.html" class="text-gray-400 hover:text-white hover:translate-x-2 transition-all inline-block font-medium">Reviews</a></li>
+                            <li><a href="#booking-section" class="text-gray-400 hover:text-white hover:translate-x-2 transition-all inline-block font-medium">Book Now</a></li>
+                            <li><a href="contact-us.html" class="text-gray-400 hover:text-white hover:translate-x-2 transition-all inline-block font-medium uppercase tracking-widest text-[10px] bg-gold/10 px-3 py-1 rounded-full border border-gold/30">CONTACT US</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <!-- Bottom Bar -->
+                <div class="mt-12 md:mt-24 pt-6 md:pt-10 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+                    <p class="text-gray-500 text-[10px] md:text-xs tracking-widest leading-relaxed order-2 md:order-1">
+                        &copy; 2026 SPARK CELEBRATIONS. All Rights Reserved.
+                    </p>
+                    <div class="flex gap-6 md:gap-10 order-1 md:order-2">
+                        <a href="privacy-policy.html" class="text-gray-500 hover:text-white text-[10px] md:text-xs transition-colors tracking-widest uppercase whitespace-nowrap">Privacy Policy</a>
+                        <a href="terms-of-service.html" class="text-gray-500 hover:text-white text-[10px] md:text-xs transition-colors tracking-widest uppercase whitespace-nowrap">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Floating Actions -->
+    <div class="fixed bottom-8 right-8 z-[100] flex flex-col gap-4 floating-actions-container">
+        <!-- WhatsApp -->
+        <a href="https://wa.me/919988659759" target="_blank" class="w-10 h-10 rounded-full bg-[#25D366] shadow-lg flex items-center justify-center hover:scale-110 transition-transform overflow-hidden relative group">
+            <div class="absolute inset-0 bg-white/20 animate-ping opacity-0 group-hover:opacity-100"></div>
+            <img src="assets/images/whatsapp_logo.png" alt="WhatsApp" class="w-5 h-5 object-contain z-10">
+        </a>
+        <!-- Call -->
+        <a href="tel:+919988659759" class="w-10 h-10 rounded-full bg-[#3b82f6] shadow-lg flex items-center justify-center hover:scale-110 transition-transform overflow-hidden relative group">
+            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3.2 3.45 3.2 3.99 3.2 13.38 10.82 21 20.21 21c.54 0 .99-.45.99-.99v-3.63c0-.55-.45-1-1-1z"/></svg>
+        </a>
+    </div>
+
+
+
+    <!-- Video Modal -->
+    <div id="video-modal" class="fixed inset-0 z-[200] bg-black/95 flex items-center justify-center p-4 md:p-10 hidden opacity-0 transition-opacity duration-300">
+        <button onclick="closeGalleryVideo()" class="absolute top-8 right-8 text-white hover:text-gold transition-colors z-[210]">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <div class="w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl relative">
+            <video id="modal-video" class="w-full h-full" controls playsinline>
+                <source src="" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/script.js"></script>
+    <script>
+        // Use global video logic from script.js if needed, or define here for quick access
+        function playGalleryVideo(element) {
+            const videoSource = element.querySelector('source').src;
+            const modal = document.getElementById('video-modal');
+            const modalVideo = document.getElementById('modal-video');
+            modalVideo.src = videoSource;
+            modal.classList.remove('hidden');
+            setTimeout(() => modal.classList.add('opacity-100'), 10);
+            document.body.style.overflow = 'hidden';
+            modalVideo.play();
+        }
+
+        function closeGalleryVideo() {
+            const modal = document.getElementById('video-modal');
+            const modalVideo = document.getElementById('modal-video');
+            modal.classList.remove('opacity-100');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modalVideo.pause();
+                modalVideo.src = "";
+                document.body.style.overflow = '';
+            }, 300);
+        }
+    </script>
+    <script src="assets/js/intro.js"></script>
+
+    <script>
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Testimonial Swiper
+        new Swiper('.testimonialSwiper', {
+            loop: true,
+            autoplay: { delay: 5000, disableOnInteraction: false },
+            pagination: { el: '.swiper-pagination', clickable: true },
+        });
+
+        // Handle pre-selected event type from URL
+        window.addEventListener('load', () => {
+            const params = new URLSearchParams(window.location.search);
+            const eventType = params.get('event');
+            if (eventType) {
+                const selectElement = document.getElementById('home-event-type');
+                if (selectElement) selectElement.value = eventType;
+            }
+        });
+
+        // GSAP Reveal Animations
+        gsap.utils.toArray('.reveal-up').forEach((elem) => {
+            gsap.fromTo(elem, 
+                { y: 50, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1.2,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: elem,
+                        start: "top 90%",
+                        toggleActions: "play none none none"
+                    }
+                }
+            );
+        });
+
+    </script>
+
+    <script>
+        // Global Sparking Motion Script
+        const bgCanvas = document.getElementById('global-spark-canvas');
+        if (bgCanvas) {
+            const bgCtx = bgCanvas.getContext('2d');
+            let bgParticles = [];
+
+            function resizeBgCanvas() {
+                bgCanvas.width = window.innerWidth;
+                bgCanvas.height = window.innerHeight;
+            }
+
+            class BgParticle {
+                constructor() {
+                    this.reset();
+                }
+                reset() {
+                    this.x = Math.random() * bgCanvas.width;
+                    this.y = Math.random() * bgCanvas.height;
+                    this.size = Math.random() * 1.5 + 0.5;
+                    this.speedX = (Math.random() - 0.5) * 0.3;
+                    this.speedY = (Math.random() - 0.5) * 0.3;
+                    this.opacity = Math.random() * 0.5 + 0.1;
+                    this.targetOpacity = this.opacity;
+                }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    
+                    if (Math.random() > 0.98) this.targetOpacity = Math.random() * 0.6 + 0.1;
+                    this.opacity += (this.targetOpacity - this.opacity) * 0.05;
+
+                    if (this.x < 0) this.x = bgCanvas.width;
+                    if (this.x > bgCanvas.width) this.x = 0;
+                    if (this.y < 0) this.y = bgCanvas.height;
+                    if (this.y > bgCanvas.height) this.y = 0;
+                }
+                draw() {
+                    // Simulated glow (Hardware friendly compared to shadowBlur)
+                    bgCtx.fillStyle = `rgba(212, 175, 55, ${this.opacity * 0.3})`;
+                    bgCtx.beginPath();
+                    bgCtx.arc(this.x, this.y, this.size * 2.5, 0, Math.PI * 2);
+                    bgCtx.fill();
+
+                    // Core particle
+                    bgCtx.fillStyle = `rgba(212, 175, 55, ${this.opacity})`;
+                    bgCtx.beginPath();
+                    bgCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    bgCtx.fill();
+                }
+            }
+
+            function initBgSparks() {
+                resizeBgCanvas();
+                const particleCount = Math.min(60, Math.floor(window.innerWidth / 15));
+                bgParticles = [];
+                for (let i = 0; i < particleCount; i++) {
+                    bgParticles.push(new BgParticle());
+                }
+            }
+
+            function animateBgSparks() {
+                bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+                bgParticles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+                requestAnimationFrame(animateBgSparks);
+            }
+
+            window.addEventListener('resize', () => {
+                resizeBgCanvas();
+                initBgSparks();
+            });
+            initBgSparks();
+            animateBgSparks();
+        }
+    </script>
+</body>
+
+</html>
